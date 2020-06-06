@@ -1,0 +1,49 @@
+// variables ====================================
+$sizeXS: 12px
+$sizeS: 14px
+$sizeM: 16px
+$sizeL: 18px
+$sizeXL: 25px
+$sizeXXL: 30px
+
+$fontFamily: 'Roboto', sans-serif
+
+$color1: #114B5F
+$color2: #1A936F
+$color3: #88D498
+$color4: #C6DABF
+$color5: #F3E9D2
+$colorError: red
+
+$m1: 5px
+$m2: 10px
+$m3: 20px
+$m4: 30px
+$m5: 40px
+
+$s: 576px
+$m: 768px
+$l: 992px
+$xl: 1200px
+
+$zIndexPopup: 20
+
+// mixins ========================================
+@mixin absoluteFitParent
+  position: absolute 
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+
+@mixin container
+  padding-right: 15px
+  padding-left: 15px
+  margin-right: auto
+  margin-left: auto
+  @media (min-width: 768px)
+    width: 750px
+  @media (min-width: 992px)
+    width: 970px
+  @media (min-width: 1200px)
+    width: 1170px
