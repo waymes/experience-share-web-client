@@ -1,0 +1,17 @@
+@import '../../styles/variables'
+
+.container
+  @include container
+  padding-bottom: $m4
+  .title
+    font-size: $sizeXXL
+    margin-bottom: $m3
+  .searchBar
+    display: flex
+    .skillInput
+      width: 50%
+    .locationInput
+      width: 30%
+      margin: 0 $m2
+    .goButton
+      flex-grow: 1
