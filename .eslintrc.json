@@ -25,6 +25,8 @@
         "react/prop-types": 0, // temporary
         "object-curly-newline": 0,
         "jsx-a11y/anchor-is-valid": 0,
-        "react/jsx-props-no-spreading": 0
+        "react/jsx-props-no-spreading": 0,
+        "react/jsx-one-expression-per-line": 0,
+        "react/jsx-closing-tag-location": 0
     }
 }

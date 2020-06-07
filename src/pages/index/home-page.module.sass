@@ -1,0 +1,31 @@
+@import '../../styles/variables'
+
+$categoryWidth: 120px
+
+.container
+  @include container
+  .title
+    text-align: center
+  .categories
+    display: flex
+    flex-wrap: wrap
+    .category
+      width: $categoryWidth
+      padding: 0 $m3
+      text-align: center
+      box-sizing: content-box
+      cursor: pointer
+      &:hover
+        .categoryTitle
+          text-decoration: underline
+      .iconHolder
+        background: $color2
+        color: $color4
+        font-size: $sizeXXL
+        border-radius: 50%
+        width: 50px
+        margin: auto
+      .categoryTitle
+        font-size: $sizeM
+        
+        

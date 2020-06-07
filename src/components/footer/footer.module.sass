@@ -1,0 +1,24 @@
+@import '../../styles/variables'
+
+.footer
+  border-top: 1px solid $color2
+  background: $color5
+  padding: $m4 0
+  .container
+    @include container
+  .links
+    display: flex
+    margin-bottom: $m2
+    li
+      margin-right: $m2
+      position: relative
+      &:after
+        content: '·'
+        font-size: $sizeXL
+        line-height: 0
+        bottom: -5px
+        left: 5px
+        position: relative
+      &:last-child
+        &:after
+          display: none

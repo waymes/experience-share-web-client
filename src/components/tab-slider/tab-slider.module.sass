@@ -1,0 +1,17 @@
+@import '../../styles/variables'
+
+.container
+  .tabs
+    display: flex
+    justify-content: center
+    margin-bottom: $m3
+    .tab
+      padding: $m2 $m3
+      border-bottom: 1px solid $color2
+      cursor: pointer
+      border-top-left-radius: $border-radius-primary
+      border-top-right-radius: $border-radius-primary
+      &.active
+        background: $color5
+  .content
+    margin-bottom: $m3
