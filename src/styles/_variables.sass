@@ -14,6 +14,7 @@ $color3: #88D498
 $color4: #C6DABF
 $color5: #F3E9D2
 $colorError: red
+$colorWhite: white
 
 $m1: 5px
 $m2: 10px
@@ -49,3 +50,7 @@ $zIndexPopup: 20
     width: 970px
   @media (min-width: 1200px)
     width: 1170px
+
+@mixin link
+  &:hover
+    text-decoration: underline

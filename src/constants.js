@@ -5,6 +5,7 @@ export const routes = {
   search: '/search',
   login: '/login',
   signup: '/signup',
+  forgotPassword: '/forgot-password',
   contact: '/contact',
   about: '/about',
   policy: '/policy',

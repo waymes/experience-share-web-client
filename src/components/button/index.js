@@ -2,7 +2,7 @@ import cx from 'classnames';
 import css from './button.module.sass';
 
 function Button({
-  children, className, onClick,
+  children, className, onClick, type,
   filled, small, large, ...other
 }) {
   const buttonMods = {
@@ -14,6 +14,7 @@ function Button({
     <button
       className={cx(css.button, className, buttonMods)}
       onClick={onClick}
+      type={type}
       {...other}
     >
       {children}
@@ -23,6 +24,7 @@ function Button({
 
 Button.defaultProps = {
   onClick: () => {},
+  type: 'button',
 };
 
 export default Button;

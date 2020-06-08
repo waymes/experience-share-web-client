@@ -5,7 +5,7 @@ import Button from '../button';
 function SearchLine() {
   return (
     <div className={css.container}>
-      <h2 className={css.title}>Хватит оправдываться, пора искать возможности</h2>
+      <h2 className={css.title}>Каждый день - это новая возможность изучить что-то новое</h2>
       <div className={css.searchBar}>
         <Input className={css.skillInput} placeholder="Навык" />
         <Input className={css.locationInput} placeholder="Город" />

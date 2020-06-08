@@ -12,7 +12,7 @@ function Footer() {
           <li><Link href={routes.policy}>Условия использования</Link></li>
         </ul>
         <span className={css.copyright}>
-          &copy; 2020 Experience-share.com. Сайт получения навыков в новых сферах.
+          &copy; 2020 Experience-share.com. Сайт получения навыков и друзей.
         </span>
       </div>
     </footer>
