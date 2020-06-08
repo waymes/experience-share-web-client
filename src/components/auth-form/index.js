@@ -1,10 +1,15 @@
+import { Form } from 'react-final-form';
 import css from './auth-form.module.sass';
 
-function AuthForm({ children }) {
+function AuthForm({ children, onSubmit }) {
   return (
-    <form className={css.form}>
-      {children}
-    </form>
+    <Form onSubmit={onSubmit}>
+      {({ handleSubmit }) => (
+        <form className={css.form} onSubmit={handleSubmit}>
+          {children}
+        </form>
+      )}
+    </Form>
   );
 }
 
