@@ -1,7 +1,7 @@
 import GeneralLayout from '../../layouts/general';
 import css from './home-page.module.sass';
 import { tempCategories } from '../../constants';
-import HomeHeader from '../../components/home-header';
+import Header from '../../components/header';
 import Footer from '../../components/footer';
 import TabSlider from '../../components/tab-slider';
 
@@ -14,7 +14,7 @@ const tabsContent = [
 function HomePage() {
   return (
     <GeneralLayout>
-      <HomeHeader />
+      <Header withSearch />
       <div className={css.container}>
         <section>
           <h2 className={css.title}>Популярные категории</h2>

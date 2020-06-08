@@ -1,10 +1,10 @@
-import css from './home-header.module.sass';
+import css from './header.module.sass';
 import Link from '../link';
 import { routes } from '../../constants';
 import Button from '../button';
 import SearchLine from '../search-line';
 
-function HomeHeader() {
+function Header({ withSearch }) {
   return (
     <header className={css.container}>
       <div className={css.topLine}>
@@ -17,9 +17,9 @@ function HomeHeader() {
           <Button large>Войти</Button>
         </Link>
       </div>
-      <SearchLine />
+      {withSearch && <SearchLine />}
     </header>
   );
 }
 
-export default HomeHeader;
+export default Header;
