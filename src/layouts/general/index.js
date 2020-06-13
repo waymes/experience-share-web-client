@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { appTitle } from '../../constants';
+import { appTitle, tempMeta } from '../../constants';
 import '../../styles/main.sass';
 
 function GeneralLayout({ children, title, className, meta }) {
@@ -7,7 +7,7 @@ function GeneralLayout({ children, title, className, meta }) {
     <div className="generalLayout">
       <Head>
         <title>{title ? `${title} | ${appTitle}` : appTitle}</title>
-        <meta name="description" content={meta} />
+        <meta name="description" content={meta || tempMeta} />
         <link rel="icon" href="/static/favicon.ico" />
       </Head>
       <div className={className}>

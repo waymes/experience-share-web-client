@@ -7,13 +7,14 @@ import Button from '../../components/button';
 import Link from '../../components/link';
 import { routes } from '../../constants';
 import Header from '../../components/header';
+import { login } from '../../store/actions/auth';
 
 function LoginPage() {
   return (
     <GeneralLayout title="Вход" className={css.container}>
       <Header />
       <h3 className={css.title}>Вход</h3>
-      <AuthForm onSubmit={() => {}}>
+      <AuthForm onSubmit={login}>
         <Input placeholder="Эл. почта" type="email" name="email" className={css.input} />
         <Input placeholder="Пароль" type="password" name="password" className={css.input} />
         <Button className={css.submit} type="submit">Войти</Button>

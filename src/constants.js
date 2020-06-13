@@ -1,4 +1,6 @@
 export const appTitle = 'Experience share';
+export const tempMeta = `Платформа обмена навыками и опытом, на которой можно
+найти единомышленников`;
 
 export const routes = {
   index: '/',
@@ -9,7 +11,9 @@ export const routes = {
   contact: '/contact',
   about: '/about',
   policy: '/policy',
-  protected: {},
+  protected: {
+    profile: '/profile',
+  },
 };
 
 export const tempCategories = [

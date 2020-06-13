@@ -11,7 +11,7 @@ function Header({ withSearch }) {
         <Link href="#">Русский</Link>
       </div>
       <div className={css.navLine}>
-        <Link href={routes.index} className={css.logo}>Experience Share.com</Link>
+        <Link href={routes.index} className={css.logo}>Skillien.com</Link>
         <Link href={routes.login}>Разместить навык</Link>
         <Link href={routes.login} className={css.loginButton}>
           <Button large>Войти</Button>
