@@ -13,6 +13,7 @@ export const routes = {
   policy: '/policy',
   protected: {
     profile: '/profile',
+    adBuilder: '/adbuilder'
   },
 };
 

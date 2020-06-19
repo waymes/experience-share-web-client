@@ -20,6 +20,11 @@ export default (state = initialState, action) => {
         ...state,
         error: action.error,
       };
+    case constants.AUTH__GET_CURRENT_USER_SUCCESS:
+      return {
+        ...state,
+        user: action.user
+      };
     default:
       return state;
   }
