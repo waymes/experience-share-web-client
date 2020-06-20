@@ -15,7 +15,7 @@ export const login = async ({ email, password }) => {
     Router.push(routes.protected.profile);
     document.cookie = `token=${token}`;
   } catch (error) {
-    dispatch({ type: constants.AUTH__LOGIN_ERROR, error });
+    return { password: error.message };
   }
 };
 
@@ -27,6 +27,18 @@ export const getCurrentUser = async (cookie) => {
     dispatch({ type: constants.AUTH__GET_CURRENT_USER_SUCCESS, user });
     return user;
   } catch (error) {
-    dispatch({ type: constants.AUTH__GET_CURRENT_USER_ERROR, error });
+    console.log(error);
   }
 };
+
+export const saveCurrentUser = async ({ firstName, lastName }) => {
+  try {
+    const user = await request('/api/users/me', {
+      method: 'PUT',
+      body: { firstName, lastName }
+    });
+    dispatch({ type: constants.AUTH__SAVE_CURRENT_USER_SUCCESS, user });
+  } catch (error) {
+    console.log(error);
+  }
+}

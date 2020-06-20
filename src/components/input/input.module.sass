@@ -1,9 +1,17 @@
 @import '../../styles/variables'
 
 .container
-
+  position: relative
   .input
     width: 100%
     font-size: $sizeM
-    padding: 5px 10px
+    padding: $m1 $m2
     border: none
+  .error
+    color: $colorError
+    text-align: left
+    width: 100%
+    display: block
+    position: absolute
+    bottom: -$m3
+    font-size: $sizeS

@@ -8,8 +8,7 @@ const tabList = [
   { text: 'Профиль', href: routes.protected.profile },
   { text: 'Настройки', href: routes.protected.settings },
   { text: 'Навыки', href: routes.protected.skills },
-  { text: 'Подписки', href: routes.protected.subscriptions },
-  { text: 'Подписчики', href: routes.protected.subscribers },
+  { text: 'Контакты', href: routes.protected.contacts },
 ]
 
 function ProfileHead({ user }) {

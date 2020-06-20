@@ -16,9 +16,14 @@ function parseJSON(response) {
 }
 
 export default (url, params = {}) => {
+  let token = null;
+  if (typeof document !== 'undefined') {
+    token = document.cookie.substring('token='.length);
+  }
   const formattedParams = {
     ...params,
     body: params.body ? JSON.stringify(params.body) : null,
+    headers: params.headers || { authorization: token }
   };
   return fetch(process.env.SERVER_URL + url, formattedParams)
     .then(checkStatus)

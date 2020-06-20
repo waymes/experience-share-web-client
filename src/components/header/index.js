@@ -6,7 +6,6 @@ import Button from '../button';
 import SearchLine from '../search-line';
 
 function Header({ withSearch, user }) {
-  const fullname = user && `${user.firstName} ${user.lastName}`;
   return (
     <header className={css.container}>
       <div className={css.navLine}>
@@ -16,7 +15,7 @@ function Header({ withSearch, user }) {
         {!user && <Link href={routes.login} className={css.button}>
           <Button large>Войти</Button>
         </Link>}
-        {user && <Link href={routes.protected.profile} className={css.link}>{fullname}</Link>}
+        {user && <Link href={routes.protected.profile} className={css.link}>Профиль</Link>}
       </div>
       {withSearch && <SearchLine />}
     </header>

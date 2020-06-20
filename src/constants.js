@@ -1,4 +1,4 @@
-export const appTitle = 'Experience share';
+export const appTitle = 'Skillien';
 export const tempMeta = `Платформа обмена навыками и опытом, на которой можно
 найти единомышленников`;
 
@@ -15,8 +15,7 @@ export const routes = {
     profile: '/profile',
     settings: '/profile/settings',
     skills: '/profile/skills',
-    subscriptions: '/profile/subscriptions',
-    subscribers: '/profile/subscribers',
+    contacts: '/profile/contacts',
     adBuilder: '/adbuilder'
   },
 };
@@ -69,4 +68,12 @@ export const tempAdvertisements = [
     currencies: ['free'],
     authorType: 'student',
   },
+];
+
+export const languages = [
+  { value: 'en-US' },
+  { value: 'es-US' },
+  { value: 'fr-FR' },
+  { value: 'uk-UA' },
+  { value: 'ru-RU' },
 ];
