@@ -1,10 +1,9 @@
-import ProfileLayout from '../../layouts/profile';
-import css from './profile.module.sass';
+import ProfileLayout from '../../../layouts/profile';
 
 function ProfilePage() {
   return (
     <ProfileLayout title="Мой профиль">
-      Мой профиль
+      Настройки
     </ProfileLayout>
   );
 }

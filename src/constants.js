@@ -13,6 +13,10 @@ export const routes = {
   policy: '/policy',
   protected: {
     profile: '/profile',
+    settings: '/profile/settings',
+    skills: '/profile/skills',
+    subscriptions: '/profile/subscriptions',
+    subscribers: '/profile/subscribers',
     adBuilder: '/adbuilder'
   },
 };

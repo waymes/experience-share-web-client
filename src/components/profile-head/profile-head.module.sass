@@ -1,0 +1,27 @@
+@import '../../styles/_variables'
+  
+$avatar-size: 100px
+
+.root
+  background: $color5
+  .info
+    display: flex
+    align-items: center
+    padding-top: $m3
+    @include container
+    .avatar
+      width: $avatar-size
+      height: $avatar-size
+      font-size: $avatar-size
+      background-size: cover
+      background-position: center
+      border-radius: 50%
+      margin-right: $m3
+    .name
+      font-size: $sizeL
+  .tabs
+    display: flex
+    justify-content: center
+    .tabItem
+      padding: $m2
+        

@@ -1,0 +1,28 @@
+import { connect } from 'react-redux';
+import GeneralLayout from '../general';
+import Header from '../../components/header';
+import css from './profile.module.sass';
+import ProfileHead from '../../components/profile-head';
+
+function ProfileLayout({ children, title, user }) {
+  if (!user) {
+    return null;
+  }
+  return (
+    <GeneralLayout title={title}>
+      <Header />
+      <div className={css.profilePage}>
+        <ProfileHead />
+        <div className={css.content}>
+          {children}
+        </div>
+      </div>
+    </GeneralLayout>
+  );
+}
+
+const mapStateToProps = (state) => ({
+  user: state.auth.user
+});
+
+export default connect(mapStateToProps)(ProfileLayout);

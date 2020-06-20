@@ -6,11 +6,9 @@ import Button from '../button';
 import SearchLine from '../search-line';
 
 function Header({ withSearch, user }) {
+  const fullname = user && `${user.firstName} ${user.lastName}`;
   return (
     <header className={css.container}>
-      <div className={css.topLine}>
-        <Link href="#">Русский</Link>
-      </div>
       <div className={css.navLine}>
         <Link href={routes.index} className={css.logo}>Skillien.com</Link>
         <Link href={routes.search} className={css.link}>Найти обьявление</Link>
@@ -18,9 +16,7 @@ function Header({ withSearch, user }) {
         {!user && <Link href={routes.login} className={css.button}>
           <Button large>Войти</Button>
         </Link>}
-        {user && <Link href={routes.protected.profile} className={css.button}>
-          <Button large>Профиль</Button>
-        </Link>}
+        {user && <Link href={routes.protected.profile} className={css.link}>{fullname}</Link>}
       </div>
       {withSearch && <SearchLine />}
     </header>

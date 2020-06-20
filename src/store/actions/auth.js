@@ -25,10 +25,8 @@ export const getCurrentUser = async (cookie) => {
     const headers = { authorization: token };
     const user = await request('/api/users/me', { method: 'GET', headers });
     dispatch({ type: constants.AUTH__GET_CURRENT_USER_SUCCESS, user });
-    console.log('in action user', user)
     return user;
   } catch (error) {
-    console.log('error', error)
     dispatch({ type: constants.AUTH__GET_CURRENT_USER_ERROR, error });
   }
 };
