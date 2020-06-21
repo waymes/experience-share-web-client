@@ -11,6 +11,11 @@ export default (state = initialState, action) => {
         ...state,
         user: action.user,
       };
+    case constants.AUTH__SIGNUP_SUCCESS:
+      return {
+        ...state,
+        user: action.user,
+      };
     case constants.AUTH__GET_CURRENT_USER_SUCCESS:
       return {
         ...state,
@@ -21,6 +26,8 @@ export default (state = initialState, action) => {
         ...state,
         user: action.user
       };
+    case constants.AUTH__LOGOUT:
+      return initialState;
     default:
       return state;
   }

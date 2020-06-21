@@ -3,7 +3,9 @@ import css from './header.module.sass';
 import Link from '../link';
 import { routes } from '../../constants';
 import Button from '../button';
+import ElementButton from '../element-button';
 import SearchLine from '../search-line';
+import { logout } from '../../store/actions/auth';
 
 function Header({ withSearch, user }) {
   return (
@@ -16,6 +18,7 @@ function Header({ withSearch, user }) {
           <Button large>Войти</Button>
         </Link>}
         {user && <Link href={routes.protected.profile} className={css.link}>Профиль</Link>}
+        {user && <ElementButton className={css.link} onClick={logout}>Выйти</ElementButton>}
       </div>
       {withSearch && <SearchLine />}
     </header>

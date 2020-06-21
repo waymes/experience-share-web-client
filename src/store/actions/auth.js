@@ -11,13 +11,35 @@ export const login = async ({ email, password }) => {
       method: 'POST',
       body: { email, password },
     });
-    dispatch({ type: constants.AUTH__LOGIN_SUCCESS, user, token });
+    dispatch({ type: constants.AUTH__LOGIN_SUCCESS, user });
     Router.push(routes.protected.profile);
     document.cookie = `token=${token}`;
   } catch (error) {
-    return { password: error.message };
+    return { password: 'Почта или пароль не верны' };
   }
 };
+
+export const signup = async ({ firstName, lastName, email, password }) => {
+  try {
+    const { token, user } = await request('/api/auth/signup', {
+      method: 'POST',
+      body: { firstName, lastName, email, password },
+    });
+    dispatch({ type: constants.AUTH__SIGNUP_SUCCESS, user });
+    document.cookie = `token=${token}`;
+    Router.push(routes.protected.profile);
+  } catch (error) {
+    if (error.statusCode === 409) {
+      return { email: 'Такая почта уже существует' };
+    }
+  }
+};
+
+export const logout = () => {
+  dispatch({ type: constants.AUTH__LOGOUT });
+  document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  Router.push(routes.login);
+}
 
 export const getCurrentUser = async (cookie) => {
   try {

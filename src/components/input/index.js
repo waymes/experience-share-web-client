@@ -1,24 +1,41 @@
 import cx from 'classnames';
 import { Field } from 'react-final-form';
 import css from './input.module.sass';
+import { validateRequired, validateEmail, validatePassword } from '../../utils/validators';
 
-const validateRequired = value => (value !== '' ? undefined : 'Обязательное поле');
 const notRemoveWhenEmpty = value => (value);
+const fieldValidator = (type, required) => (value) => {
+  if (required && !validateRequired(value)) {
+    return 'Обязательное поле';
+  }
+  if (type === 'email' && !validateEmail(value)) {
+    return 'Почта не валидная';
+  }
+  if (type === 'password' && !validatePassword(value)) {
+    return 'Пароль не валиден';
+  }
 
-function Input({ className, inputClassName, name, label, required, ...other }) {
+  return undefined;
+};
+
+function Input({ className, inputClassName, name, label, required, type, ...other }) {
   return (
-    <Field name={name} validate={required && validateRequired} parse={notRemoveWhenEmpty}>
+    <Field name={name} validate={fieldValidator(type, required)} parse={notRemoveWhenEmpty}>
       {({ input, meta }) => (
         <div className={cx(css.container, className)}>
           {label && <label htmlFor={name}>{label}</label>}
           <input
             id={name}
             className={cx(css.input, inputClassName)}
+            type={type}
             {...input}
             {...other}
           />
           {meta.touched && (meta.submitError || meta.error) &&
-            <span className={css.error}>{meta.error || meta.submitError}</span>}
+            <span
+              className={css.error}
+              title={type === 'password' ? 'Пароль должен содержать цыфру, заглавную и строчную буквы и быть не менее 8 символов' : ''}
+            >{meta.error || meta.submitError}</span>}
         </div>
       )}
     </Field>

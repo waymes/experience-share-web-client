@@ -5,6 +5,7 @@ import AuthForm from '../../components/auth-form';
 import Input from '../../components/input';
 import Button from '../../components/button';
 import Header from '../../components/header';
+import { signup } from '../../store/actions/auth';
 
 const privacyText = 'Нажимая кнопку "Зарегестрироваться", вы принимаете правила сайта и политику конфиденциальности';
 
@@ -13,13 +14,13 @@ function SignupPage() {
     <GeneralLayout title="Регистрация" className={css.container}>
       <Header />
       <h3 className={css.title}>Зарегестрируйтесь</h3>
-      <AuthForm onSubmit={() => {}}>
+      <AuthForm onSubmit={signup}>
         <Button className={css.googleSignup}>Регистрация через Google</Button>
         <div className={css.separator}>Или</div>
-        <Input placeholder="Имя" name="firstName" className={css.input} />
+        <Input placeholder="Имя" name="firstName" className={css.input} required />
         <Input placeholder="Фамилия" name="lastName" className={css.input} />
-        <Input placeholder="Эл. почта" name="email" type="email" className={css.input} />
-        <Input placeholder="Пароль" name="password" type="password" className={css.input} />
+        <Input placeholder="Эл. почта" name="email" type="email" className={css.input} required />
+        <Input placeholder="Пароль" name="password" type="password" className={css.input} required />
         <p className={css.privacyText}>{privacyText}</p>
         <Button className={css.submit} type="submit">Зарегестрироваться</Button>
       </AuthForm>
