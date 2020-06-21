@@ -14,9 +14,9 @@ export const routes = {
   protected: {
     profile: '/profile',
     settings: '/profile/settings',
-    skills: '/profile/skills',
+    advertisements: '/profile/advertisements',
     contacts: '/profile/contacts',
-    adBuilder: '/adbuilder'
+    adBuilder: '/profile/adBuilder'
   },
 };
 
