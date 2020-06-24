@@ -20,10 +20,15 @@ export default (url, params = {}) => {
   if (typeof document !== 'undefined') {
     token = document.cookie.substring('token='.length);
   }
+  let headers = {
+    'Content-Type': 'application/json',
+    authorization: token,
+    ...params.headers,
+  };
   const formattedParams = {
     ...params,
     body: params.body ? JSON.stringify(params.body) : null,
-    headers: params.headers || { authorization: token }
+    headers
   };
   return fetch(process.env.SERVER_URL + url, formattedParams)
     .then(checkStatus)
