@@ -7,7 +7,7 @@ import { routes } from '../../constants';
 const tabList = [
   { text: 'Профиль', href: routes.protected.profile },
   { text: 'Настройки', href: routes.protected.settings },
-  { text: 'Обьявления', href: routes.protected.advertisements },
+  { text: 'Посты', href: routes.protected.posts },
   { text: 'Контакты', href: routes.protected.contacts },
 ]
 

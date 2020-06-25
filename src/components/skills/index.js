@@ -1,6 +1,8 @@
 import cx from 'classnames';
 import Button from '../button';
 import css from './skills.module.sass';
+import Modal from '../modal';
+import SkillForm from '../skill-form';
 
 const skills = [
   {
@@ -30,6 +32,7 @@ const skills = [
 ]
 
 function Skills() {
+  const [showModal, setShowModal] = React.useState(false);
   return (
     <div className={css.root}>
       <div className={css.skillList}>
@@ -40,7 +43,10 @@ function Skills() {
           </div>
         ))}
       </div>
-      <Button className={css.button}>Добавить новый навык</Button>
+      <Button className={css.button} onClick={() => setShowModal(true)}>Добавить новый навык</Button>
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+        <SkillForm onSubmit={() => {}} onClose={() => setShowModal(false)} />
+      </Modal>
     </div>
   );
 }

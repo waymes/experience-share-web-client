@@ -15,8 +15,8 @@ function LoginPage() {
       <Header />
       <h3 className={css.title}>Вход</h3>
       <AuthForm onSubmit={login}>
-        <Input placeholder="Эл. почта" type="email" name="email" className={css.input} />
-        <Input placeholder="Пароль" type="password" name="password" className={css.input} />
+        <Input placeholder="Эл. почта" type="email" name="email" className={css.input} required />
+        <Input placeholder="Пароль" type="password" name="password" className={css.input} required />
         <Button className={css.submit} type="submit">Войти</Button>
         <Link href={routes.forgotPassword} className={css.forgotPassword}>Забыли пароль?</Link>
         <div className={css.separator}>Или</div>

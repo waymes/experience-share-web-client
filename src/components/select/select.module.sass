@@ -1,6 +1,7 @@
 @import '../../styles/_variables'
 
 .root
+  position: relative
   .select
     width: 100%
     background: $colorWhite
@@ -8,3 +9,11 @@
     border: none
     font-size: $sizeM
     line-height: $sizeL
+  .error
+    color: $colorError
+    text-align: left
+    width: 100%
+    display: block
+    position: absolute
+    bottom: -$m3
+    font-size: $sizeS

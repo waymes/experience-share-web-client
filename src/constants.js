@@ -14,7 +14,7 @@ export const routes = {
   protected: {
     profile: '/profile',
     settings: '/profile/settings',
-    advertisements: '/profile/advertisements',
+    posts: '/profile/posts',
     contacts: '/profile/contacts',
     adBuilder: '/profile/adBuilder'
   },
@@ -71,9 +71,34 @@ export const tempAdvertisements = [
 ];
 
 export const languages = [
-  { value: 'en-US' },
-  { value: 'es-US' },
-  { value: 'fr-FR' },
-  { value: 'uk-UA' },
-  { value: 'ru-RU' },
+  { value: 'en-US', text: 'en-US' },
+  { value: 'es-US', text: 'es-US' },
+  { value: 'fr-FR', text: 'fr-FR' },
+  { value: 'uk-UA', text: 'uk-UA' },
+  { value: 'ru-RU', text: 'ru-RU' },
+];
+
+export const levelsOfSkill = [
+  { value: null, text: '- выбрать -' },
+  { value: 'beginner', text: 'Начинающий' },
+  { value: 'intermediate', text: 'Средний' },
+  { value: 'upperIntermediate', text: 'Выше среднего' },
+  { value: 'advanced', text: 'Продвинутый' },
+  { value: 'professional', text: 'Профессионал' },
+];
+
+export const lastUsedOptions = [
+  { value: null, text: '- выбрать -' },
+  { value: 'notUsed', text: 'не использовался' },
+  { value: 'currentlyUsing', text: 'использую в настоящее время' },
+  { value: 'oneYearAgo', text: '1 год назад' },
+  { value: 'twoYearsAgo', text: '2 года назад' },
+  { value: 'threeYearsAgo', text: '3 года назад' },
+  { value: 'moreThanFourYearsAgo', text: 'более 4-х лет назад' },
+];
+
+export const yearsOfExperience = [
+  { value: null, text: '- выбрать -' },
+  ...Array(9).fill(null).map((el, id) => ({ value: id + 1, text: id + 1 })),
+  { value: 10, text: '10+' }
 ];

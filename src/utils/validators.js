@@ -1,4 +1,9 @@
-export const validateRequired = value => (value !== '' ? true : false);
+export const validateRequired = value => {
+  if (value === '' || value === undefined || value === null) {
+    return false;
+  }
+  return true;
+};
 
 
 const EMAIL_PATTERN = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

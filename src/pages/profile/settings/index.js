@@ -5,7 +5,7 @@ import Button from '../../../components/button';
 import { languages } from '../../../constants';
 import css from './settings.module.sass';
 
-function ProfilePage() {
+function SettingsPage() {
   return (
     <ProfileLayout title="Настройки" className={css.root}>
       <ProfileSection
@@ -20,4 +20,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default SettingsPage;
