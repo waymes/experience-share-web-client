@@ -56,7 +56,7 @@ export const getCurrentUser = async (cookie) => {
 export const saveCurrentUser = async ({ firstName, lastName }) => {
   try {
     const user = await request('/api/users/me', {
-      method: 'PUT',
+      method: 'PATCH',
       body: { firstName, lastName }
     });
     dispatch({ type: constants.AUTH__SAVE_CURRENT_USER_SUCCESS, user });
