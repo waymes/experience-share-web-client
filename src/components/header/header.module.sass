@@ -1,10 +1,9 @@
-@import '../../styles/variables'
+@import '../../styles/_variables'
   
 .container
   background: $color3
-  .topLine, .navLine
-    @include container
   .navLine
+    @include container
     display: flex
     align-items: center
     padding-top: $m2
@@ -17,3 +16,34 @@
       cursor: pointer
     .button
       margin-left: $m3
+  .profileMenu
+    position: relative
+    margin-left: $m3
+    user-select: none
+    cursor: pointer
+    .avatar
+      width: 30px
+      height: 30px
+      font-size: 30px
+    .dropdownMenu
+      position: absolute
+      width: max-content
+      top: 45px
+      right: 0
+      background-color: $color4
+      box-shadow: $box-shadow-primary
+      border-radius: $border-radius-primary
+      &::after
+        content: ''
+        position: absolute
+        top: -10px
+        right: 5px
+        width: 0
+        height: 0
+        border-left: 10px solid transparent
+        border-right: 10px solid transparent
+        border-bottom: 10px solid $color4
+      .link
+        display: block
+        padding: $m2 $m3
+        margin: 0
