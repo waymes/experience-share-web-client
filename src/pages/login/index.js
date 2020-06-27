@@ -17,10 +17,10 @@ function LoginPage() {
       <AuthForm onSubmit={login}>
         <Input placeholder="Эл. почта" type="email" name="email" className={css.input} required />
         <Input placeholder="Пароль" type="password" name="password" className={css.input} required />
-        <Button className={css.submit} type="submit">Войти</Button>
+        <Button className={css.submit} filled type="submit">Войти</Button>
         <Link href={routes.forgotPassword} className={css.forgotPassword}>Забыли пароль?</Link>
         <div className={css.separator}>Или</div>
-        <Button className={css.googleLogin}>Войти через Google</Button>
+        <Button className={css.googleLogin} filled>Войти через Google</Button>
       </AuthForm>
       <div className={css.signup}>
         <span>Еще не с нами? <Link href={routes.signup}>Зарегистрироваться</Link></span>

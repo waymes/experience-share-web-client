@@ -1,17 +1,21 @@
-@import '../../styles/variables'
+@import '../../styles/_variables'
 
-.container
-  @include container
-  padding-bottom: $m4
-  .title
-    font-size: $sizeXXL
-    margin-bottom: $m3
-  .searchForm
-    display: flex
-    .skillInput
-      width: 50%
-    .locationInput
-      width: 30%
-      margin: 0 $m2
-    .goButton
-      flex-grow: 1
+.root
+  background: $background2
+  .container
+    @include container
+    padding-bottom: $m4
+    padding-top: $m3
+    .title
+      font-size: $sizeXXL
+      margin-top: 0
+      margin-bottom: $m3
+    .searchForm
+      display: flex
+      .skillInput
+        width: 50%
+      .locationInput
+        width: 30%
+        margin: 0 $m2
+      .goButton
+        flex-grow: 1

@@ -20,21 +20,6 @@ export const routes = {
   },
 };
 
-export const tempCategories = [
-  { title: 'Разработка', name: 'development' },
-  { title: 'Бизнес', name: 'business' },
-  { title: 'Финансы и бухгалтерский учет', name: 'finance' },
-  { title: 'Продуктивность', name: 'productivity' },
-  { title: 'Игры', name: 'games' },
-  { title: 'Личностный рост', name: 'personalDevelopment' },
-  { title: 'Дизайн', name: 'design' },
-  { title: 'Маркетинг', name: 'marketing' },
-  { title: 'Стиль жизни', name: 'lifeStyle' },
-  { title: 'Фото и видео сьемка', name: 'photo&video' },
-  { title: 'Здоровье и фитнес', name: 'health' },
-  { title: 'Музыка', name: 'music' },
-];
-
 export const tempAdvertisements = [
   {
     id: 1,

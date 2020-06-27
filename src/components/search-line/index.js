@@ -18,17 +18,19 @@ function SearchLine() {
     router.push(`${routes.search}?${search}`);
   };
   return (
-    <div className={css.container}>
-      <h2 className={css.title}>Каждый день - это новая возможность изучить что-то новое</h2>
-      <Form onSubmit={onSubmit} initialValues={initialValues}>
-        {({ handleSubmit }) => (
-          <form className={css.searchForm} onSubmit={handleSubmit}>
-            <Input name="skill" className={css.skillInput} placeholder="Навык, который вы хотите приобрести" />
-            <Input name="location" className={css.locationInput} placeholder="Город" />
-            <Button className={css.goButton} filled type="submit">Найти обьявления</Button>
-          </form>
-        )}
-      </Form>
+    <div className={css.root}>
+      <div className={css.container}>
+        <h2 className={css.title}>Каждый день - это новая возможность изучить что-то новое</h2>
+        <Form onSubmit={onSubmit} initialValues={initialValues}>
+          {({ handleSubmit }) => (
+            <form className={css.searchForm} onSubmit={handleSubmit}>
+              <Input name="skill" className={css.skillInput} placeholder="Навык, который вы хотите приобрести" />
+              <Input name="location" className={css.locationInput} placeholder="Город" />
+              <Button className={css.goButton} filled type="submit">Найти обьявления</Button>
+            </form>
+          )}
+        </Form>
+      </div>
     </div>
   );
 }

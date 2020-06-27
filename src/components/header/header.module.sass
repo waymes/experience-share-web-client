@@ -1,21 +1,22 @@
 @import '../../styles/_variables'
   
-.container
-  background: $color3
-  .navLine
-    @include container
-    display: flex
-    align-items: center
-    padding-top: $m2
-    padding-bottom: $m2
-    .logo
-      margin-right: auto
-      font-size: $sizeXXL
-    .link
-      margin-left: $m3
-      cursor: pointer
-    .button
-      margin-left: $m3
+.root
+  .container
+    border-bottom: 3px solid $background2
+    .navLine
+      @include container
+      display: flex
+      align-items: center
+      padding-top: $m2
+      padding-bottom: $m2
+      .logo
+        margin-right: auto
+        font-size: $sizeXXL
+      .link
+        margin-left: $m3
+        cursor: pointer
+      .button
+        margin-left: $m3
   .profileMenu
     position: relative
     margin-left: $m3
@@ -30,7 +31,8 @@
       width: max-content
       top: 45px
       right: 0
-      background-color: $color4
+      background-color: $background1
+      color: $color2
       box-shadow: $box-shadow-primary
       border-radius: $border-radius-primary
       &::after
@@ -42,8 +44,11 @@
         height: 0
         border-left: 10px solid transparent
         border-right: 10px solid transparent
-        border-bottom: 10px solid $color4
+        border-bottom: 10px solid $background1
       .link
         display: block
         padding: $m2 $m3
         margin: 0
+        &:hover
+          background: $background2
+          color: $color1

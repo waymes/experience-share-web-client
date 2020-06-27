@@ -27,25 +27,27 @@ function Header({ withSearch, user }) {
   }, [onClickOutside]);
 
   return (
-    <header className={css.container}>
-      <div className={css.navLine}>
-        <Link href={routes.index} className={css.logo}>Skillien.com</Link>
-        <Link href={routes.search} className={css.link}>Найти обьявление</Link>
-        <Link href={routes.protected.adBuilder} className={css.link}>Разместить навык</Link>
-        {!user && <Link href={routes.login} className={css.button}>
-          <Button large>Войти</Button>
-        </Link>}
-        {user && (
-          <ElementButton className={css.profileMenu} onClick={() => setMenuOpen(!isMenuOpen)}>
-            <div className={cx('icon-user', css.avatar)} />
-            {isMenuOpen && (
-              <div className={css.dropdownMenu} ref={dropdownRef}>
-                <Link href={routes.protected.profile} className={css.link}>Профиль</Link>
-                <ElementButton className={css.link} onClick={logout}>Выйти</ElementButton>
-              </div>
-            )}
-          </ElementButton>
-        )}
+    <header className={css.root}>
+      <div className={css.container}>
+        <div className={css.navLine}>
+          <Link href={routes.index} className={css.logo}>Skillien.com</Link>
+          <Link href={routes.search} className={css.link}>Найти обьявление</Link>
+          <Link href={routes.protected.adBuilder} className={css.link}>Разместить навык</Link>
+          {!user && <Link href={routes.login} className={css.button}>
+            <Button large>Войти</Button>
+          </Link>}
+          {user && (
+            <ElementButton className={css.profileMenu} onClick={() => setMenuOpen(!isMenuOpen)}>
+              <div className={cx('icon-user', css.avatar)} />
+              {isMenuOpen && (
+                <div className={css.dropdownMenu} ref={dropdownRef}>
+                  <Link href={routes.protected.profile} className={css.link}>Профиль</Link>
+                  <ElementButton className={css.link} onClick={logout}>Выйти</ElementButton>
+                </div>
+              )}
+            </ElementButton>
+          )}
+        </div>
       </div>
       {withSearch && <SearchLine />}
     </header>

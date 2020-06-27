@@ -15,14 +15,14 @@ function SignupPage() {
       <Header />
       <h3 className={css.title}>Зарегестрируйтесь</h3>
       <AuthForm onSubmit={signup}>
-        <Button className={css.googleSignup}>Регистрация через Google</Button>
+        <Button className={css.googleSignup} filled>Регистрация через Google</Button>
         <div className={css.separator}>Или</div>
         <Input placeholder="Имя" name="firstName" className={css.input} required />
         <Input placeholder="Фамилия" name="lastName" className={css.input} />
         <Input placeholder="Эл. почта" name="email" type="email" className={css.input} required />
         <Input placeholder="Пароль" name="password" type="password" className={css.input} required />
         <p className={css.privacyText}>{privacyText}</p>
-        <Button className={css.submit} type="submit">Зарегестрироваться</Button>
+        <Button className={css.submit} filled type="submit">Зарегестрироваться</Button>
       </AuthForm>
       <Footer />
     </GeneralLayout>
