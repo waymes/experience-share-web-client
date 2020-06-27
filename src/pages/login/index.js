@@ -23,7 +23,7 @@ function LoginPage() {
         <Button className={css.googleLogin} filled>Войти через Google</Button>
       </AuthForm>
       <div className={css.signup}>
-        <span>Еще не с нами? <Link href={routes.signup}>Зарегистрироваться</Link></span>
+        <span>Еще не с нами? <Link href={routes.signup}>Присоедениться</Link></span>
       </div>
       <Footer />
     </GeneralLayout>

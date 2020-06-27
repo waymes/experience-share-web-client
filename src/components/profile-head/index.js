@@ -21,9 +21,7 @@ function ProfileHead({ user }) {
       </div>
       <div className={css.tabs}>
         {tabList.map(tab => (
-          <div key={tab.text} className={css.tabItem}>
-            <Link href={tab.href}>{tab.text}</Link>
-          </div>
+          <Link key={tab.text} href={tab.href} className={css.tabItem} activeClassName={css.active}>{tab.text}</Link>
         ))}
       </div>
     </div>

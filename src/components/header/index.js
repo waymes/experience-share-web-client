@@ -42,6 +42,7 @@ function Header({ withSearch, user }) {
               {isMenuOpen && (
                 <div className={css.dropdownMenu} ref={dropdownRef}>
                   <Link href={routes.protected.profile} className={css.link}>Профиль</Link>
+                  <Link href={routes.protected.settings} className={css.link}>Настройки</Link>
                   <ElementButton className={css.link} onClick={logout}>Выйти</ElementButton>
                 </div>
               )}

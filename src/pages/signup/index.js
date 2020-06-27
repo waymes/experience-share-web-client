@@ -13,7 +13,7 @@ function SignupPage() {
   return (
     <GeneralLayout title="Регистрация" className={css.container}>
       <Header />
-      <h3 className={css.title}>Зарегестрируйтесь</h3>
+      <h3 className={css.title}>Регистрация</h3>
       <AuthForm onSubmit={signup}>
         <Button className={css.googleSignup} filled>Регистрация через Google</Button>
         <div className={css.separator}>Или</div>
