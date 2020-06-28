@@ -13,8 +13,8 @@ export const routes = {
   policy: '/policy',
   protected: {
     profile: '/profile',
-    settings: '/profile/settings',
-    posts: '/profile/posts',
+    couchings: '/profile/couchings',
+    requests: '/profile/requests',
     contacts: '/profile/contacts',
     adBuilder: '/profile/adBuilder'
   },

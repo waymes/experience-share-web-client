@@ -3,7 +3,8 @@ import ProfileLayout from '../../layouts/profile';
 import ProfileSection from '../../components/profile-section';
 import Input from '../../components/input';
 import Button from '../../components/button';
-import Skills from '../../components/skills';
+import Select from '../../components/select';
+import { languages } from '../../constants';
 import css from './profile.module.sass';
 import { saveCurrentUser } from '../../store/actions/auth';
 
@@ -30,10 +31,12 @@ function ProfilePage({ user }) {
         <Button type="submit" className={css.button}>Изменить адресс эл. почты</Button>
       </ProfileSection>
       <ProfileSection
-        title="Мои навыки"
+        title="Настройки аккаунта"
+        onSubmit={() => {}}
         className={css.section}
       >
-        <Skills />
+        <Select options={languages} name="language" label="Язык интерфейса" className={css.select} />
+        <Button type="submit" className={css.button}>Сохранить</Button>
       </ProfileSection>
     </ProfileLayout>
   );
