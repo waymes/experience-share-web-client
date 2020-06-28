@@ -13,10 +13,9 @@ export const routes = {
   policy: '/policy',
   protected: {
     profile: '/profile',
-    couchings: '/profile/couchings',
+    coachings: '/profile/coachings',
     requests: '/profile/requests',
     contacts: '/profile/contacts',
-    adBuilder: '/profile/adBuilder'
   },
 };
 
@@ -56,34 +55,23 @@ export const tempAdvertisements = [
 ];
 
 export const languages = [
-  { value: 'en-US', text: 'en-US' },
-  { value: 'es-US', text: 'es-US' },
-  { value: 'fr-FR', text: 'fr-FR' },
-  { value: 'uk-UA', text: 'uk-UA' },
-  { value: 'ru-RU', text: 'ru-RU' },
+  { value: 'en-US', label: 'en-US' },
+  { value: 'es-US', label: 'es-US' },
+  { value: 'fr-FR', label: 'fr-FR' },
+  { value: 'uk-UA', label: 'uk-UA' },
+  { value: 'ru-RU', label: 'ru-RU' },
 ];
 
 export const levelsOfSkill = [
-  { value: null, text: '- выбрать -' },
-  { value: 'beginner', text: 'Начинающий' },
-  { value: 'intermediate', text: 'Средний' },
-  { value: 'upperIntermediate', text: 'Выше среднего' },
-  { value: 'advanced', text: 'Продвинутый' },
-  { value: 'professional', text: 'Профессионал' },
+  { value: 'beginner', label: 'Начинающий' },
+  { value: 'intermediate', label: 'Средний' },
+  { value: 'upperIntermediate', label: 'Выше среднего' },
+  { value: 'advanced', label: 'Продвинутый' },
+  { value: 'professional', label: 'Профессионал' },
 ];
 
-export const lastUsedOptions = [
-  { value: null, text: '- выбрать -' },
-  { value: 'notUsed', text: 'не использовался' },
-  { value: 'currentlyUsing', text: 'использую в настоящее время' },
-  { value: 'oneYearAgo', text: '1 год назад' },
-  { value: 'twoYearsAgo', text: '2 года назад' },
-  { value: 'threeYearsAgo', text: '3 года назад' },
-  { value: 'moreThanFourYearsAgo', text: 'более 4-х лет назад' },
-];
-
-export const yearsOfExperience = [
-  { value: null, text: '- выбрать -' },
-  ...Array(9).fill(null).map((el, id) => ({ value: id + 1, text: id + 1 })),
-  { value: 10, text: '10+' }
+export const exchangeTypes = [
+  { value: 'free', label: 'Бесплатно' },
+  { value: 'paid', label: 'За деньги' },
+  { value: 'exchange', label: 'Взамен на другой навык' }
 ];

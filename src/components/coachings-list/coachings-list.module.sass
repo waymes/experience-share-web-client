@@ -1,0 +1,47 @@
+@import '../../styles/_variables'
+
+.root
+  .coaching
+    background-color: $background2
+    padding: $m3
+    margin-bottom: $m3
+    position: relative
+    display: flex
+    .avatar
+      width: 150px
+      height: 150px
+      font-size: 150px
+      border-radius: 50%
+      overflow: hidden
+      flex-shrink: 0
+      margin-right: $m3
+    .title
+      margin-top: 0
+      margin-bottom: $m2
+    .description
+      margin-top: $m2
+      white-space: nowrap
+      text-overflow: ellipsis
+      overflow: hidden
+      max-width: 500px
+    .skill
+      margin-right: $m3
+      position: relative
+      &::after
+        position: absolute
+        right: -12px
+        font-weight: bold
+        content: '·'
+      &:last-child
+        &::after
+          display: none
+    .type
+      position: absolute
+      right: $m2
+      bottom: $m2
+      padding: 0 $m1
+      background-color: $background3
+      border-radius: $border-radius-primary
+  .notFound
+    text-align: center
+    display: block

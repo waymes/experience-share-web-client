@@ -2,7 +2,7 @@ import cx from 'classnames';
 import css from './button.module.sass';
 
 function Button({
-  children, className, onClick, type,
+  children, className, onClick, type, component,
   filled, small, large, ...other
 }) {
   const buttonMods = {
@@ -10,15 +10,16 @@ function Button({
     [css.large]: large,
     [css.filled]: filled,
   };
+  const Element = component || 'button';
   return (
-    <button
+    <Element
       className={cx(css.button, className, buttonMods)}
       onClick={onClick}
       type={type}
       {...other}
     >
       {children}
-    </button>
+    </Element>
   );
 }
 

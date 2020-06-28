@@ -3,7 +3,12 @@ import { Field } from 'react-final-form';
 import css from './input.module.sass';
 import { validateRequired, validateEmail, validatePassword } from '../../utils/validators';
 
-const notRemoveWhenEmpty = value => (value);
+const notRemoveWhenEmpty = type => value => {
+  if (type === 'number') {
+    return parseInt(value, 10);
+  }
+  return value;
+};
 const fieldValidator = (type, required) => (value) => {
   if (required && !validateRequired(value)) {
     return 'Обязательное поле';
@@ -20,7 +25,7 @@ const fieldValidator = (type, required) => (value) => {
 
 function Input({ className, inputClassName, name, label, required, type, ...other }) {
   return (
-    <Field name={name} validate={fieldValidator(type, required)} parse={notRemoveWhenEmpty}>
+    <Field name={name} validate={fieldValidator(type, required)} parse={notRemoveWhenEmpty(type)}>
       {({ input, meta }) => (
         <div className={cx(css.container, className)}>
           {label && <label htmlFor={name}>{label}</label>}

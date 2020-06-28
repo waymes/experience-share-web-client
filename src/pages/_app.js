@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import withRedux from '../layouts/hocs/with-redux';
 import { getCurrentUser } from '../store/actions/auth';
 import { routes } from '../constants';
+import { getCookie } from '../utils/request';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -10,7 +11,7 @@ class MyApp extends App {
     const protectedRoute = Object.values(routes.protected).includes(ctx.pathname);
 
     if (ctx.req) {
-      const { cookie } = ctx.req.headers;
+      const cookie = getCookie(ctx.req)
       if (cookie) {
         await getCurrentUser(cookie)
           .then((user) => {

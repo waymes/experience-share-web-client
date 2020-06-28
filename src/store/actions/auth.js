@@ -43,8 +43,7 @@ export const logout = () => {
 
 export const getCurrentUser = async (cookie) => {
   try {
-    const token = cookie && cookie.substring('token='.length)
-    const headers = { authorization: token };
+    const headers = { authorization: cookie };
     const user = await request('/api/users/me', { method: 'GET', headers });
     dispatch({ type: constants.AUTH__GET_CURRENT_USER_SUCCESS, user });
     return user;
@@ -60,6 +59,25 @@ export const saveCurrentUser = async ({ firstName, lastName }) => {
       body: { firstName, lastName }
     });
     dispatch({ type: constants.AUTH__SAVE_CURRENT_USER_SUCCESS, user });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const fetchMyCoachings = async (cookie) => {
+  try {
+    const headers = { authorization: cookie };
+    const coachings = await request('/api/coachings/my', { method: 'GET', headers: cookie ? headers : null });
+    dispatch({ type: constants.AUTH__FETCH_COACHINGS_SUCCESS, coachings });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const createCoaching = async (values) => {
+  try {
+    const coaching = await request('/api/coachings', { method: 'POST', body: values });
+    dispatch({ type: constants.AUTH__CREATE_COACHING_SUCCESS, coaching });
   } catch (error) {
     console.log(error);
   }

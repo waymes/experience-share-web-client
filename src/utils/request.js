@@ -33,3 +33,10 @@ export default (url, params = {}) => {
     .then(checkStatus)
     .then(parseJSON);
 };
+
+export const getCookie = (req) => {
+  if (!req) return null;
+
+  const { cookie } = req.headers;
+  return cookie ? cookie.substring('token='.length) : null;
+}

@@ -13,8 +13,8 @@ function SearchLine() {
   };
   const onSubmit = ({ skill, location }) => {
     let search = '';
-    if (skill) search += `skill=${skill}`;
-    if (location) search += `&location=${location}`;
+    if (skill) search += `skill=${encodeURI(skill)}`;
+    if (location) search += `&location=${encodeURI(location)}`;
     router.push(`${routes.search}?${search}`);
   };
   return (

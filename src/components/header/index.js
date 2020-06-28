@@ -32,10 +32,10 @@ function Header({ withSearch, user }) {
         <div className={css.navLine}>
           <Link href={routes.index} className={css.logo}>Skillien.com</Link>
           <Link href={routes.search} className={css.link}>Найти обьявление</Link>
-          <Link href={routes.protected.adBuilder} className={css.link}>Разместить навык</Link>
-          {!user && <Link href={routes.login} className={css.button}>
-            <Button large>Войти</Button>
-          </Link>}
+          <Link href={routes.login} className={css.link}>Разместить навык</Link>
+          {!user && (
+            <Button large component={Link} href={routes.login} className={css.button}>Войти</Button>
+          )}
           {user && (
             <ElementButton className={css.profileMenu} onClick={() => setMenuOpen(!isMenuOpen)}>
               <div className={cx('icon-user', css.avatar)} />
