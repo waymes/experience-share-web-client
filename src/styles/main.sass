@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap)
 @import url(~sanitize.css)
 @import './_variables'
 @import './fonts.css'
@@ -12,10 +13,13 @@ body
 body *
   box-sizing: border-box
 input, textarea
-  font-family: 'Roboto', sans-serif
+  font-family: $fontFamily
 a
   color: inherit
+  font-family: inherit
   text-decoration: none
+h1, h2, h3, h4, h5, h6
+  letter-spacing: 1px
 
 ul
   padding: 0

@@ -1,0 +1,24 @@
+@import '../../styles/_variables'
+
+.container
+  .tabs
+    display: flex
+    justify-content: center
+    border-bottom: 1px solid $border-color
+    .tab
+      padding: $m2 $m3
+      border: 1px solid transparent
+      cursor: pointer
+      border-top-left-radius: $border-radius-primary
+      border-top-right-radius: $border-radius-primary
+      position: relative
+      bottom: -1px
+      &.active
+        background: $background3
+        border-color: $border-color
+        border-bottom-color: $background3
+  .content
+    padding: $m3
+    background-color: $background3
+    border: 1px solid $border-color
+    border-top-color: transparent

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('/static/fonts/icomoon.eot?vct4qm');
-  src:  url('/static/fonts/icomoon.eot?vct4qm#iefix') format('embedded-opentype'),
-    url('/static/fonts/icomoon.ttf?vct4qm') format('truetype'),
-    url('/static/fonts/icomoon.woff?vct4qm') format('woff'),
-    url('/static/fonts/icomoon.svg?vct4qm#icomoon') format('svg');
+  src:  url('/static/fonts/icomoon.eot?p68va8');
+  src:  url('/static/fonts/icomoon.eot?p68va8#iefix') format('embedded-opentype'),
+    url('/static/fonts/icomoon.ttf?p68va8') format('truetype'),
+    url('/static/fonts/icomoon.woff?p68va8') format('woff'),
+    url('/static/fonts/icomoon.svg?p68va8#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,14 +25,50 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-business:before {
+  content: "\e903";
+}
 .icon-edit:before {
   content: "\e905";
+}
+.icon-style:before {
+  content: "\e907";
+}
+.icon-design:before {
+  content: "\e90c";
+}
+.icon-photo:before {
+  content: "\e90f";
+}
+.icon-music:before {
+  content: "\e911";
+}
+.icon-game:before {
+  content: "\e915";
+}
+.icon-marketing:before {
+  content: "\e91a";
+}
+.icon-money:before {
+  content: "\e93b";
+}
+.icon-development:before {
+  content: "\e956";
 }
 .icon-user:before {
   content: "\e971";
 }
+.icon-productivity:before {
+  content: "\e995";
+}
+.icon-health:before {
+  content: "\e998";
+}
 .icon-bin:before {
   content: "\e9ac";
+}
+.icon-personal:before {
+  content: "\e9d4";
 }
 .icon-star-full:before {
   content: "\e9d9";

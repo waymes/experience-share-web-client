@@ -3,8 +3,11 @@ import GeneralLayout from '../../layouts/general';
 import css from './home-page.module.sass';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-import TabSlider from '../../components/tab-slider';
+import Tabs from '../../components/tabs';
+import Link from '../../components/link';
 import { getCategories } from '../../store/actions/general';
+import Section from '../../components/section';
+import { routes } from '../../constants';
 
 const tabsContent = [
   'Вы размещаете или ищете подходящее обьявление, затем связываетесь с преподователем и начинаете обучение',
@@ -19,30 +22,32 @@ class HomePage extends React.Component {
   render() {
     const { categories } = this.props;
     return (
-      <GeneralLayout>
+      <GeneralLayout className={css.root}>
         <Header withSearch />
-        <div className={css.container}>
-          <section>
-            <h2 className={css.title}>Популярные категории</h2>
-            <div className={css.categories}>
-              {categories.map((category) => (
-                <div key={category.id} className={css.category}>
-                  <div className={css.iconHolder}>
-                    <i className="icon-star-full" />
-                  </div>
-                  <h4 className={css.categoryTitle}>{category.name}</h4>
+        <Section>
+          <h2 className={css.title}>Популярные категории</h2>
+          <div className={css.categories}>
+            {categories.map((category) => (
+              <Link key={category.id} className={css.category} href={`${routes.search}?category=${category.name}`}>
+                <div className={css.iconHolder}>
+                  <i className={`icon-${category.name}`} />
                 </div>
-              ))}
-            </div>
-          </section>
-          <section>
-            <h2 className={css.title}>Как это работает?</h2>
-            <TabSlider
-              tabs={['Приобрести навык', 'Поделиться навыком', 'FAQ']}
-              content={tabsContent}
-            />
-          </section>
-        </div>
+                <span className={css.categoryTitle}>{category.name}</span>
+              </Link>
+            ))}
+          </div>
+        </Section>
+        <Section>
+          <h2 className={css.title}>Как это работает?</h2>
+          <Tabs
+            items={[
+              { label: 'Приобрести навык' },
+              { label: 'Поделиться навыком' },
+              { label: 'FAQ' }
+            ]}
+            content={tabsContent}
+          />
+        </Section>
         <Footer />
       </GeneralLayout>
     );
