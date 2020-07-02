@@ -6,7 +6,7 @@ import Button from '../../components/button';
 import Select from '../../components/select';
 import { languages } from '../../constants';
 import css from './profile.module.sass';
-import { saveCurrentUser } from '../../store/actions/auth';
+import { saveCurrentUser } from '../../store/actions/profile';
 
 function ProfilePage({ user }) {
   return (
@@ -43,7 +43,7 @@ function ProfilePage({ user }) {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.auth.user
+  user: state.profile.user
 });
 
 export default connect(mapStateToProps)(ProfilePage);

@@ -1,7 +1,7 @@
 import App, { Container } from 'next/app';
 import { Provider } from 'react-redux';
 import withRedux from '../layouts/hocs/with-redux';
-import { getCurrentUser } from '../store/actions/auth';
+import { getCurrentUser } from '../store/actions/profile';
 import { routes } from '../constants';
 import { getCookie } from '../utils/request';
 

@@ -7,7 +7,7 @@ import Button from '../../components/button';
 import Link from '../../components/link';
 import { routes } from '../../constants';
 import Header from '../../components/header';
-import { login } from '../../store/actions/auth';
+import { login } from '../../store/actions/profile';
 
 function LoginPage() {
   return (

@@ -29,7 +29,7 @@ function ProfileHead({ user }) {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.auth.user,
+  user: state.profile.user,
 });
 
 export default connect(mapStateToProps)(ProfileHead);

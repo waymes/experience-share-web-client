@@ -6,7 +6,7 @@ import { routes } from '../../constants';
 import Button from '../button';
 import ElementButton from '../element-button';
 import SearchLine from '../search-line';
-import { logout } from '../../store/actions/auth';
+import { logout } from '../../store/actions/profile';
 
 function Header({ withSearch, user }) {
   const [isMenuOpen, setMenuOpen] = React.useState(false);
@@ -53,7 +53,7 @@ function Header({ withSearch, user }) {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.auth.user
+  user: state.profile.user
 });
 
 export default connect(mapStateToProps)(Header);

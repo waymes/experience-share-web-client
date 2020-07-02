@@ -30,7 +30,7 @@ class ProfileLayout extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.auth.user
+  user: state.profile.user
 });
 
 export default connect(mapStateToProps)(ProfileLayout);

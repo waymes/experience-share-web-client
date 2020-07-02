@@ -2,7 +2,7 @@ import cx from 'classnames';
 import css from './coachings-list.module.sass';
 import { exchangeTypes } from '../../constants';
 
-function CoachingsList({ items }) {
+function CoachingsList({ items, editable }) {
   return (
     <div className={css.root}>
       {items.map(coaching => {

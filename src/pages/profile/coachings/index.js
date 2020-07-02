@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import css from './coachings.module.sass';
 import ProfileLayout from '../../../layouts/profile';
 import CoachingsList from '../../../components/coachings-list';
-import { fetchMyCoachings, createCoaching } from '../../../store/actions/auth';
+import { fetchMyCoachings, createCoaching } from '../../../store/actions/profile';
 import { getCookie } from '../../../utils/request';
 import Button from '../../../components/button';
 import CoachingForm from '../../../components/coaching-form';
@@ -39,7 +39,7 @@ class CoachingsPage extends React.Component {
         <div className={css.nav}>
           <Button onClick={this.openModal}>Добавить учение</Button>
         </div>
-        <CoachingsList items={coachings} />
+        <CoachingsList items={coachings} editable />
         <Modal isOpen={isCoachingModalOpen} onClose={this.closeModal}>
           <CoachingForm onSubmit={this.handleSubmit} categories={categories} />
         </Modal>
@@ -49,7 +49,7 @@ class CoachingsPage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  coachings: state.auth.coachings,
+  coachings: state.profile.coachings,
   categories: state.general.categories,
 });
 

@@ -1,4 +1,4 @@
-import * as constants from '../constants/auth';
+import * as constants from '../constants/profile';
 
 const initialState = {
   user: null,
@@ -7,37 +7,42 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case constants.AUTH__LOGIN_SUCCESS:
+    case constants.PROFILE__LOGIN_SUCCESS:
       return {
         ...state,
         user: action.user,
       };
-    case constants.AUTH__SIGNUP_SUCCESS:
+    case constants.PROFILE__SIGNUP_SUCCESS:
       return {
         ...state,
         user: action.user,
       };
-    case constants.AUTH__GET_CURRENT_USER_SUCCESS:
+    case constants.PROFILE__GET_CURRENT_USER_SUCCESS:
       return {
         ...state,
         user: action.user
       };
-    case constants.AUTH__SAVE_CURRENT_USER_SUCCESS:
+    case constants.PROFILE__SAVE_CURRENT_USER_SUCCESS:
       return {
         ...state,
         user: action.user
       };
-    case constants.AUTH__LOGOUT:
+    case constants.PROFILE__LOGOUT:
       return initialState;
-    case constants.AUTH__FETCH_COACHINGS_SUCCESS:
+    case constants.PROFILE__FETCH_COACHINGS_SUCCESS:
       return {
         ...state,
         coachings: action.coachings
       };
-    case constants.AUTH__CREATE_COACHING_SUCCESS:
+    case constants.PROFILE__CREATE_COACHING_SUCCESS:
       return {
         ...state,
         coachings: [action.coaching, ...state.coachings]
+      };
+    case constants.PROFILE__DELETE_COACHING_SUCCESS:
+      return {
+        ...state,
+        coachings: state.coachings.filter(el => el.id !== action.id)
       };
     default:
       return state;
