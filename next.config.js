@@ -18,7 +18,7 @@ module.exports = withSass({
       },
     });
     config.module.rules.forEach((rule) => {
-      if (rule.test.toString().includes('.sass')) {
+      if (rule.text && rule.test.toString().includes('.sass')) {
         rule.rules = rule.use.map((useRule) => {
           if (typeof useRule === 'string') {
             return { loader: useRule };

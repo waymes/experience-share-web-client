@@ -10,7 +10,7 @@ function GeneralLayout({ children, title, className, meta }) {
       <Head>
         <title>{title ? `${title} | ${appTitle}` : appTitle}</title>
         <meta name="description" content={meta || tempMeta} />
-        <link rel="icon" href="/static/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={cx(className, css.content)}>
         {children}
