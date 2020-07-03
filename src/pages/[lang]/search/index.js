@@ -1,9 +1,9 @@
-import GeneralLayout from '../../layouts/general';
+import GeneralLayout from '../../../layouts/general';
 import css from './search.module.sass';
-import Header from '../../components/header';
-import Footer from '../../components/footer';
-import SearchResult from '../../components/search-result';
-import { tempAdvertisements } from '../../constants';
+import Header from '../../../components/header';
+import Footer from '../../../components/footer';
+import SearchResult from '../../../components/search-result';
+import { tempAdvertisements } from '../../../constants';
 
 function HomePage() {
   return (

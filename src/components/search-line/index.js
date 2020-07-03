@@ -15,7 +15,7 @@ function SearchLine() {
     let search = '';
     if (skill) search += `skill=${encodeURI(skill)}`;
     if (location) search += `&location=${encodeURI(location)}`;
-    router.push(`${routes.search}?${search}`);
+    router.push(`/[lang]${routes.search}`, `/en${routes.search}?${search}`);
   };
   return (
     <div className={css.root}>

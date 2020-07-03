@@ -1,13 +1,13 @@
 import css from './login.module.sass';
-import GeneralLayout from '../../layouts/general';
-import Footer from '../../components/footer';
-import AuthForm from '../../components/auth-form';
-import Input from '../../components/input';
-import Button from '../../components/button';
-import Link from '../../components/link';
-import { routes } from '../../constants';
-import Header from '../../components/header';
-import { login } from '../../store/actions/profile';
+import GeneralLayout from '../../../layouts/general';
+import Footer from '../../../components/footer';
+import AuthForm from '../../../components/auth-form';
+import Input from '../../../components/input';
+import Button from '../../../components/button';
+import Link from '../../../components/link';
+import { routes } from '../../../constants';
+import Header from '../../../components/header';
+import { login } from '../../../store/actions/profile';
 
 function LoginPage() {
   return (

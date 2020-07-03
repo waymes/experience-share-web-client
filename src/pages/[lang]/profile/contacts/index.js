@@ -1,4 +1,4 @@
-import ProfileLayout from '../../../layouts/profile';
+import ProfileLayout from '../../../../layouts/profile';
 import css from './contacts.module.sass';
 
 function ContactsPage() {

@@ -1,11 +1,11 @@
 import css from './signup.module.sass';
-import GeneralLayout from '../../layouts/general';
-import Footer from '../../components/footer';
-import AuthForm from '../../components/auth-form';
-import Input from '../../components/input';
-import Button from '../../components/button';
-import Header from '../../components/header';
-import { signup } from '../../store/actions/profile';
+import GeneralLayout from '../../../layouts/general';
+import Footer from '../../../components/footer';
+import AuthForm from '../../../components/auth-form';
+import Input from '../../../components/input';
+import Button from '../../../components/button';
+import Header from '../../../components/header';
+import { signup } from '../../../store/actions/profile';
 
 const privacyText = 'Нажимая кнопку "Зарегестрироваться", вы принимаете правила сайта и политику конфиденциальности';
 

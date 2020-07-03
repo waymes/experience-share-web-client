@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import css from './coachings.module.sass';
-import ProfileLayout from '../../../layouts/profile';
-import CoachingsList from '../../../components/coachings-list';
-import { fetchMyCoachings, createCoaching } from '../../../store/actions/profile';
-import { getCookie } from '../../../utils/request';
-import Button from '../../../components/button';
-import CoachingForm from '../../../components/coaching-form';
-import Modal from '../../../components/modal';
+import ProfileLayout from '../../../../layouts/profile';
+import CoachingsList from '../../../../components/coachings-list';
+import { fetchMyCoachings, createCoaching } from '../../../../store/actions/profile';
+import { getCookie } from '../../../../utils/request';
+import Button from '../../../../components/button';
+import CoachingForm from '../../../../components/coaching-form';
+import Modal from '../../../../components/modal';
 
 class CoachingsPage extends React.Component {
   static async getInitialProps({ req }) {

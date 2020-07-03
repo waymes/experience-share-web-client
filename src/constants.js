@@ -1,6 +1,9 @@
 export const appTitle = 'Skillien';
 export const tempMeta = `Платформа обмена навыками и опытом, на которой можно
 найти единомышленников`;
+// export const defaultLocale = 'en';
+export const defaultLocale = 'ru'; // TODO: change to en
+export const locales = ['en', 'ru'];
 
 export const routes = {
   index: '/',

@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import ProfileLayout from '../../layouts/profile';
-import ProfileSection from '../../components/profile-section';
-import Input from '../../components/input';
-import Button from '../../components/button';
-import Select from '../../components/select';
-import { languages } from '../../constants';
+import ProfileLayout from '../../../layouts/profile';
+import ProfileSection from '../../../components/profile-section';
+import Input from '../../../components/input';
+import Button from '../../../components/button';
+import Select from '../../../components/select';
+import { languages } from '../../../constants';
 import css from './profile.module.sass';
-import { saveCurrentUser } from '../../store/actions/profile';
+import { saveCurrentUser } from '../../../store/actions/profile';
 
 function ProfilePage({ user }) {
   return (
