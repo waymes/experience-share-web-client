@@ -3,9 +3,10 @@ import { Provider } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import withRedux from '../layouts/hocs/with-redux';
 import { getCurrentUser } from '../store/actions/profile';
-import { routes, locales } from '../constants';
+import { routes } from '../constants';
 import { getCookie } from '../utils/request';
 import { getInitialLocale } from '../translations/getInitialLocale';
+import ruLocale from '../translations/ru.json';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -55,7 +56,7 @@ class MyApp extends App {
 
     return (
       <Provider store={reduxStore}>
-        <IntlProvider locale={locale}>
+        <IntlProvider locale={locale} messages={ruLocale}>
           <Component {...pageProps} />
         </IntlProvider>
       </Provider>

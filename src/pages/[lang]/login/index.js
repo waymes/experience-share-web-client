@@ -1,3 +1,4 @@
+import { FormattedMessage, useIntl } from 'react-intl';
 import css from './login.module.sass';
 import GeneralLayout from '../../../layouts/general';
 import Footer from '../../../components/footer';
@@ -8,22 +9,36 @@ import Link from '../../../components/link';
 import { routes } from '../../../constants';
 import Header from '../../../components/header';
 import { login } from '../../../store/actions/profile';
+import messages from './messages';
 
 function LoginPage() {
+  const { formatMessage } = useIntl();
   return (
-    <GeneralLayout title="Вход" className={css.container}>
+    <GeneralLayout title={formatMessage(messages.loginTitle)} className={css.container}>
       <Header />
-      <h3 className={css.title}>Вход</h3>
+      <h3 className={css.title}><FormattedMessage {...messages.loginTitle} /></h3>
       <AuthForm onSubmit={login}>
-        <Input placeholder="Эл. почта" type="email" name="email" className={css.input} required />
-        <Input placeholder="Пароль" type="password" name="password" className={css.input} required />
-        <Button className={css.submit} filled type="submit">Войти</Button>
-        <Link href={routes.forgotPassword} className={css.forgotPassword}>Забыли пароль?</Link>
-        <div className={css.separator}>Или</div>
-        <Button className={css.googleLogin} filled>Войти через Google</Button>
+        <Input placeholder={formatMessage(messages.email)} type="email" name="email" className={css.input} required />
+        <Input placeholder={formatMessage(messages.password)} type="password" name="password" className={css.input} required />
+        <Button className={css.submit} filled type="submit">
+          <FormattedMessage {...messages.login} />
+        </Button>
+        <Link href={routes.forgotPassword} className={css.forgotPassword}>
+          <FormattedMessage {...messages.forgotPassword} />
+        </Link>
+        <div className={css.separator}><FormattedMessage {...messages.or} /></div>
+        <Button className={css.googleLogin} filled>
+          <FormattedMessage {...messages.loginWithGoogle} />
+        </Button>
       </AuthForm>
       <div className={css.signup}>
-        <span>Еще не с нами? <Link href={routes.signup}>Присоедениться</Link></span>
+        <span>
+          <FormattedMessage {...messages.notWithUs} />
+          {' '}
+          <Link href={routes.signup}>
+            <FormattedMessage {...messages.join} />
+          </Link>
+        </span>
       </div>
       <Footer />
     </GeneralLayout>

@@ -1,0 +1,8 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    [ "react-intl", {
+        "messagesDir": "./build/messages"
+    }]
+  ]
+}

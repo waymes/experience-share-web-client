@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 import GeneralLayout from '../../layouts/general';
 import css from './home-page.module.sass';
 import Header from '../../components/header';
@@ -8,6 +9,7 @@ import Link from '../../components/link';
 import { getCategories } from '../../store/actions/general';
 import Section from '../../components/section';
 import { routes } from '../../constants';
+import messages from './messages';
 
 const tabsContent = [
   'Вы размещаете или ищете подходящее обьявление, затем связываетесь с преподователем и начинаете обучение',
@@ -25,20 +27,22 @@ class HomePage extends React.Component {
       <GeneralLayout className={css.root}>
         <Header withSearch />
         <Section>
-          <h2 className={css.title}>Популярные категории</h2>
+          <h2 className={css.title}><FormattedMessage {...messages.popularCategories} /></h2>
           <div className={css.categories}>
             {categories.map((category) => (
               <Link key={category.id} className={css.category} href={`${routes.search}?category=${category.name}`}>
                 <div className={css.iconHolder}>
                   <i className={`icon-${category.name}`} />
                 </div>
-                <span className={css.categoryTitle}>{category.name}</span>
+                <span className={css.categoryTitle}>
+                  {messages[category.name] && <FormattedMessage {...messages[category.name]} />}
+                </span>
               </Link>
             ))}
           </div>
         </Section>
         <Section>
-          <h2 className={css.title}>Как это работает?</h2>
+          <h2 className={css.title}><FormattedMessage {...messages.howItWorks} /></h2>
           <Tabs
             items={[
               { label: 'Приобрести навык' },

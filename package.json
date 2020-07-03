@@ -9,7 +9,8 @@
     "start": "NODE_ENV=production node src/server",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "extract-messages": "NODE_ENV=development babel ./src --out-file /dev/null && node ./translationsRunner"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
@@ -33,12 +34,16 @@
     "webpack": "^4.43.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "babel-plugin-react-intl": "^7.5.28",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.1",
+    "react-intl-translations-manager": "^5.0.3",
     "url-loader": "^4.1.0"
   }
 }
