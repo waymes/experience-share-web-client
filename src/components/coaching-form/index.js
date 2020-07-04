@@ -1,4 +1,4 @@
-import { Form, Field } from 'react-final-form';
+import { Form } from 'react-final-form';
 import Input from '../input';
 import Select from '../select';
 import Button from '../button';
@@ -11,16 +11,16 @@ const initialValues = {
   price: 0,
   skills: [],
   level: '',
-  payment: ''
+  payment: '',
 };
 
 function CoachingModal({ onSubmit, categories }) {
-  const categoriesOptions = categories.map(el => ({ value: el.id, label: el.name }));
+  const categoriesOptions = categories.map((el) => ({ value: el.id, label: el.name }));
 
   const handleFormSubmit = React.useCallback((values) => {
     onSubmit({
       ...values,
-      skills: values.skills.map(el => el.value),
+      skills: values.skills.map((el) => el.value),
       level: values.level.value,
       categoryId: values.categoryId.value,
       payment: values.payment.value,

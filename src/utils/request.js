@@ -27,7 +27,7 @@ export default (url, params = {}) => {
       'Content-Type': 'application/json',
       authorization: token,
       ...params.headers,
-    }
+    },
   };
   return fetch(process.env.SERVER_URL + url, formattedParams)
     .then(checkStatus)
@@ -39,4 +39,4 @@ export const getCookie = (req) => {
 
   const { cookie } = req.headers;
   return cookie ? cookie.substring('token='.length) : null;
-}
+};

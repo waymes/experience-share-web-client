@@ -23,7 +23,7 @@ function Header({ withSearch, user }) {
     window.addEventListener('click', onClickOutside);
     return () => {
       window.removeEventListener('click', onClickOutside);
-    }
+    };
   }, [onClickOutside]);
 
   return (
@@ -53,7 +53,7 @@ function Header({ withSearch, user }) {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.profile.user
+  user: state.profile.user,
 });
 
 export default connect(mapStateToProps)(Header);

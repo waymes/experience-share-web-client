@@ -17,34 +17,6 @@ module.exports = withSass({
         },
       },
     });
-    config.module.rules.forEach((rule) => {
-      if (rule.text && rule.test.toString().includes('.sass')) {
-        rule.rules = rule.use.map((useRule) => {
-          if (typeof useRule === 'string') {
-            return { loader: useRule };
-          }
-          if (useRule.loader.startsWith('css-loader')) {
-            return {
-              oneOf: [
-                {
-                  test: /\.module\.sass$/,
-                  loader: useRule.loader,
-                  options: { ...useRule.options, modules: true },
-                },
-                {
-                  loader: useRule.loader,
-                  options: { ...useRule.options, modules: false },
-                },
-              ],
-            };
-          }
-
-          return useRule;
-        });
-
-        delete rule.use;
-      }
-    });
 
     return config;
   },

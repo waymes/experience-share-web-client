@@ -43,7 +43,7 @@ function ProfilePage({ user }) {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.profile.user
+  user: state.profile.user,
 });
 
 export default connect(mapStateToProps)(ProfilePage);

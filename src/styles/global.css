@@ -1,0 +1,18 @@
+:global {
+  .modal-transition-enter {
+    top: -400px;
+    opacity: 0;
+  }
+  .modal-transition-enter-active {
+    top: 0;
+    opacity: 1;
+    transition: all 400ms;
+  }
+  .modal-transition-exit {
+    opacity: 1;
+  }
+  .modal-transition-exit-active {
+    opacity: 0;
+    transition: all 400ms;
+  }
+}

@@ -36,6 +36,7 @@
   "devDependencies": {
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
+    "babel-eslint": "^10.1.0",
     "babel-plugin-react-intl": "^7.5.28",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",

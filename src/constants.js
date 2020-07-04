@@ -76,5 +76,5 @@ export const levelsOfSkill = [
 export const exchangeTypes = [
   { value: 'free', label: 'Бесплатно' },
   { value: 'paid', label: 'За деньги' },
-  { value: 'exchange', label: 'Взамен на другой навык' }
+  { value: 'exchange', label: 'Взамен на другой навык' },
 ];

@@ -12,7 +12,7 @@ function Section({ children, full }) {
 }
 
 Section.defaultProps = {
-  full: false
+  full: false,
 };
 
 export default Section;

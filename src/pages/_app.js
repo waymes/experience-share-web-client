@@ -12,10 +12,10 @@ class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
     const protectedRoute = Object.values(routes.protected).includes(ctx.pathname);
-    let locale = getInitialLocale();
+    const locale = getInitialLocale();
 
     if (ctx.req) {
-      const cookie = getCookie(ctx.req)
+      const cookie = getCookie(ctx.req);
       if (cookie) {
         await getCurrentUser(cookie)
           .then((user) => {
@@ -45,8 +45,7 @@ class MyApp extends App {
 
   static localeRedirect(ctx, locale) {
     const langRegex = /^\/[a-zA-Z]*\//;
-    let pathname = ctx.asPath.replace(langRegex, `/${locale}/`);
-    console.log('redirecting')
+    const pathname = ctx.asPath.replace(langRegex, `/${locale}/`);
     ctx.res.writeHead(307, { Location: pathname });
     ctx.res.end();
   }

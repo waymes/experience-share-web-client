@@ -12,8 +12,9 @@ export const login = async ({ email, password }) => {
       body: { email, password },
     });
     dispatch({ type: constants.PROFILE__LOGIN_SUCCESS, user });
-    Router.push(routes.protected.profile);
+    Router.push(`/[lang]${routes.protected.profile}`, `/${Router.router.query.lang}${routes.protected.profile}`);
     document.cookie = `token=${token}`;
+    return null;
   } catch (error) {
     return { password: 'Почта или пароль не верны' };
   }
@@ -27,11 +28,13 @@ export const signup = async ({ firstName, lastName, email, password }) => {
     });
     dispatch({ type: constants.PROFILE__SIGNUP_SUCCESS, user });
     document.cookie = `token=${token}`;
-    Router.push(routes.protected.profile);
+    Router.push(`/[lang]${routes.protected.profile}`, `/${Router.router.query.lang}${routes.protected.profile}`);
+    return null;
   } catch (error) {
     if (error.statusCode === 409) {
       return { email: 'Такая почта уже существует' };
     }
+    return null;
   }
 };
 
@@ -39,7 +42,8 @@ export const logout = () => {
   dispatch({ type: constants.PROFILE__LOGOUT });
   document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
   Router.push(routes.login);
-}
+  Router.push(`/[lang]${routes.login}`, `/${Router.router.query.lang}${routes.login}`);
+};
 
 export const getCurrentUser = async (cookie) => {
   try {
@@ -49,6 +53,7 @@ export const getCurrentUser = async (cookie) => {
     return user;
   } catch (error) {
     console.log(error);
+    return null;
   }
 };
 
@@ -56,13 +61,13 @@ export const saveCurrentUser = async ({ firstName, lastName }) => {
   try {
     const user = await request('/api/users/me', {
       method: 'PATCH',
-      body: { firstName, lastName }
+      body: { firstName, lastName },
     });
     dispatch({ type: constants.PROFILE__SAVE_CURRENT_USER_SUCCESS, user });
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export const fetchMyCoachings = async (cookie) => {
   try {
@@ -72,7 +77,7 @@ export const fetchMyCoachings = async (cookie) => {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export const createCoaching = async (values) => {
   try {
@@ -81,7 +86,7 @@ export const createCoaching = async (values) => {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export const deleteCoaching = async (id) => {
   try {
@@ -90,4 +95,4 @@ export const deleteCoaching = async (id) => {
   } catch (error) {
     console.log(error);
   }
-}
+};

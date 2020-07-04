@@ -3,7 +3,7 @@ import { Field } from 'react-final-form';
 import css from './textarea.module.sass';
 import { validateRequired } from '../../utils/validators';
 
-const notRemoveWhenEmpty = value => (value);
+const notRemoveWhenEmpty = (value) => (value);
 const fieldValidator = (required) => (value) => {
   if (required && !validateRequired(value)) {
     return 'Обязательное поле';
@@ -24,8 +24,8 @@ function Textarea({ className, inputClassName, name, label, required, ...other }
             {...input}
             {...other}
           />
-          {meta.touched && (meta.submitError || meta.error) &&
-            <span className={css.error}>{meta.error || meta.submitError}</span>}
+          {meta.touched && (meta.submitError || meta.error)
+            && <span className={css.error}>{meta.error || meta.submitError}</span>}
         </div>
       )}
     </Field>

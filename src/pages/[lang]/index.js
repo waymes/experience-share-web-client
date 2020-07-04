@@ -21,6 +21,7 @@ class HomePage extends React.Component {
   static async getInitialProps() {
     await getCategories();
   }
+
   render() {
     const { categories } = this.props;
     return (
@@ -47,7 +48,7 @@ class HomePage extends React.Component {
             items={[
               { label: 'Приобрести навык' },
               { label: 'Поделиться навыком' },
-              { label: 'FAQ' }
+              { label: 'FAQ' },
             ]}
             content={tabsContent}
           />
@@ -59,7 +60,7 @@ class HomePage extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  categories: state.general.categories
+  categories: state.general.categories,
 });
 
 export default connect(mapStateToProps)(HomePage);

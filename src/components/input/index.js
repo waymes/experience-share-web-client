@@ -3,7 +3,7 @@ import { Field } from 'react-final-form';
 import css from './input.module.sass';
 import { validateRequired, validateEmail, validatePassword } from '../../utils/validators';
 
-const notRemoveWhenEmpty = type => value => {
+const notRemoveWhenEmpty = (type) => (value) => {
   if (type === 'number') {
     return parseInt(value, 10);
   }
@@ -36,11 +36,13 @@ function Input({ className, inputClassName, name, label, required, type, ...othe
             {...input}
             {...other}
           />
-          {meta.touched && (meta.submitError || meta.error) &&
+          {meta.touched && (meta.submitError || meta.error)
+            && (
             <span
               className={css.error}
               title={type === 'password' ? 'Пароль должен содержать цыфру, заглавную и строчную буквы и быть не менее 8 символов' : ''}
-            >{meta.error || meta.submitError}</span>}
+            >{meta.error || meta.submitError}</span>
+            )}
         </div>
       )}
     </Field>

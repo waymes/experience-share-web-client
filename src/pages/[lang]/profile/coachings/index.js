@@ -13,24 +13,29 @@ class CoachingsPage extends React.Component {
     const cookie = getCookie(req);
     return Promise.all([
       fetchMyCoachings(cookie),
-      ProfileLayout.getInitialProps()
+      ProfileLayout.getInitialProps(),
     ]);
   }
+
   constructor(props) {
     super(props);
 
     this.state = { isCoachingModalOpen: false };
   }
+
   openModal = () => {
     this.setState({ isCoachingModalOpen: true });
   }
+
   closeModal = () => {
     this.setState({ isCoachingModalOpen: false });
   }
+
   handleSubmit = (values) => {
     createCoaching(values);
     this.closeModal();
   }
+
   render() {
     const { isCoachingModalOpen } = this.state;
     const { coachings, categories } = this.props;
@@ -48,7 +53,7 @@ class CoachingsPage extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   coachings: state.profile.coachings,
   categories: state.general.categories,
 });

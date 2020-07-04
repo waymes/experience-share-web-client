@@ -3,10 +3,14 @@
         "browser": true,
         "es2020": true
     },
+    "globals": {
+        "React": "readonly"
+    },
     "extends": [
         "plugin:react/recommended",
         "airbnb"
     ],
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true

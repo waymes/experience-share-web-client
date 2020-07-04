@@ -3,6 +3,7 @@ import { dispatch } from '../index';
 
 import * as constants from '../constants/general';
 
+// eslint-disable-next-line import/prefer-default-export
 export const getCategories = async () => {
   try {
     const categories = await request('/api/categories', { method: 'GET' });

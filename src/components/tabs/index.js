@@ -22,9 +22,11 @@ function Tabs({ items, content, isLinks }) {
           >{tab.label}</Component>
         ))}
       </div>
-      {content[currentTab] && <div className={css.content}>
+      {content[currentTab] && (
+      <div className={css.content}>
         {content[currentTab]}
-      </div>}
+      </div>
+      )}
     </div>
   );
 }

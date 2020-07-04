@@ -1,7 +1,7 @@
 import { defaultLocale, locales } from '../constants';
 
 export function isLocale(tested) {
-  return locales.some(locale => locale === tested);
+  return locales.some((locale) => locale === tested);
 }
 
 export function getInitialLocale() {

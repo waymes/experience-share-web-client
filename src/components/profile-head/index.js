@@ -1,7 +1,6 @@
 import cx from 'classnames';
 import { connect } from 'react-redux';
 import css from './profile-head.module.sass';
-import Link from '../link';
 import { routes } from '../../constants';
 import Tabs from '../tabs';
 
@@ -10,7 +9,7 @@ const tabList = [
   { label: 'Мои учения', href: routes.protected.coachings },
   { label: 'Мои заявки', href: routes.protected.requests },
   { label: 'Контакты', href: routes.protected.contacts },
-]
+];
 
 function ProfileHead({ user }) {
   const fullname = `${user.firstName} ${user.lastName}`;

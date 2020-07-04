@@ -5,6 +5,8 @@ import cx from 'classnames';
 import css from './select.module.sass';
 import { validateRequired } from '../../utils/validators';
 
+let instanceId = 1; // workaround for ssr id mismatch
+
 const fieldValidator = (required) => (value) => {
   if (required && !validateRequired(value)) {
     return 'Обязательное поле';
@@ -16,9 +18,9 @@ const fieldValidator = (required) => (value) => {
   return undefined;
 };
 
-const styles = {
-  control: styles => ({
-    ...styles, 
+const selectStyles = {
+  control: (styles) => ({
+    ...styles,
     borderColor: '#414141',
     borderRadius: 'none',
     boxShadow: 'none',
@@ -32,22 +34,22 @@ const styles = {
     backgroundColor: isFocused ? '#e7e5e3' : '#fff',
     color: '#333',
   }),
-  multiValueRemove: styles => ({
+  multiValueRemove: (styles) => ({
     ...styles,
     '&:hover': {
       backgroundColor: '#414141',
-      'svg': {
-        fill: '#fff'
-      }
-    }
-  })
+      svg: {
+        fill: '#fff',
+      },
+    },
+  }),
 };
 
 function Select({ name, label, className, options, required, isCreatable, isMulti }) {
   const Component = isCreatable ? CreatableSelect : ReactSelect;
   return (
     <Field name={name} validate={fieldValidator(required)}>
-      {({ input,  meta }) => (
+      {({ input, meta }) => (
         <div className={cx(className, css.root)}>
           {label && <label htmlFor={name} className={css.label}>{label}</label>}
           <Component
@@ -55,7 +57,9 @@ function Select({ name, label, className, options, required, isCreatable, isMult
             {...input}
             placeholder="- выбрать -"
             isMulti={isMulti}
-            styles={styles}
+            styles={selectStyles}
+            // eslint-disable-next-line no-plusplus
+            instanceId={instanceId++}
           />
           {meta.touched && meta.error && <span className={css.error}>{meta.error}</span>}
         </div>

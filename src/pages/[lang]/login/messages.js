@@ -1,4 +1,4 @@
-import {defineMessages} from 'react-intl';
+import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   loginTitle: {
@@ -45,5 +45,5 @@ export default defineMessages({
     id: 'pages.login.password',
     defaultMessage: 'PASSWORD',
     description: 'Password',
-  }
+  },
 });

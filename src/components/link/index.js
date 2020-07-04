@@ -7,7 +7,7 @@ function Link({ children, href, className, activeClassName }) {
   const router = useRouter();
   const intl = useIntl();
 
-  const isActive = href === router.pathname;
+  const isActive = `/${intl.locale}${href}` === router.asPath;
   return (
     <NextLink href={`/[lang]${href}`} as={`/${intl.locale}${href}`}>
       <a className={cx(className, { [activeClassName]: isActive })}>

@@ -5,5 +5,5 @@ import generalReducer from './general';
 
 export default combineReducers({
   profile: profileReducer,
-  general: generalReducer
+  general: generalReducer,
 });

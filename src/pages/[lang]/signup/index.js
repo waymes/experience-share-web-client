@@ -16,7 +16,9 @@ function SignupPage() {
       <Header />
       <h3 className={css.title}><FormattedMessage {...messages.signupTitle} /></h3>
       <AuthForm onSubmit={signup}>
-        <Button className={css.googleSignup} filled><FormattedMessage {...messages.signupWithGoogle} /></Button>
+        <Button className={css.googleSignup} filled>
+          <FormattedMessage {...messages.signupWithGoogle} />
+        </Button>
         <div className={css.separator}><FormattedMessage {...messages.or} /></div>
         <Input placeholder={formatMessage(messages.firstName)} name="firstName" className={css.input} required />
         <Input placeholder={formatMessage(messages.lastName)} name="lastName" className={css.input} />

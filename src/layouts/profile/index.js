@@ -10,6 +10,7 @@ class ProfileLayout extends React.Component {
   static async getInitialProps() {
     await getCategories();
   }
+
   render() {
     const { children, title, user, className } = this.props;
     if (!user) {
@@ -30,7 +31,7 @@ class ProfileLayout extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.profile.user
+  user: state.profile.user,
 });
 
 export default connect(mapStateToProps)(ProfileLayout);
