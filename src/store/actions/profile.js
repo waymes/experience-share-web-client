@@ -82,6 +82,15 @@ export const createCoaching = async (values) => {
   try {
     const coaching = await request('/api/coachings', { method: 'POST', body: values });
     dispatch({ type: constants.PROFILE__CREATE_COACHING_SUCCESS, coaching });
+    Router.push(`/[lang]${routes.protected.createCoaching.as}`, `/${Router.router.query.lang}${routes.protected.coachings}/${coaching.id}`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const updateCoaching = async (values) => {
+  try {
+    await request(`/api/coachings/${values.id}`, { method: 'PATCH', body: values });
   } catch (error) {
     console.log(error);
   }
@@ -91,6 +100,7 @@ export const deleteCoaching = async (id) => {
   try {
     await request(`/api/coachings/${id}`, { method: 'DELETE' });
     dispatch({ type: constants.PROFILE__DELETE_COACHING_SUCCESS, id });
+    Router.push(`/[lang]${routes.protected.coachings}`, `/${Router.router.query.lang}${routes.protected.coachings}`);
   } catch (error) {
     console.log(error);
   }

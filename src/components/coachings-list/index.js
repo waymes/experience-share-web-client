@@ -1,14 +1,19 @@
 import cx from 'classnames';
 import css from './coachings-list.module.sass';
-import { exchangeTypes } from '../../constants';
+import { exchangeTypes, routes } from '../../constants';
+import Link from '../link';
 
 function CoachingsList({ items }) {
+  const getCoachingUrl = (id) => ({
+    as: routes.protected.createCoaching.as,
+    to: `${routes.protected.coachings}/${id}`,
+  });
   return (
     <div className={css.root}>
       {items.map((coaching) => {
         const exchangeType = exchangeTypes.find((el) => el.value === coaching.payment);
         return (
-          <div key={coaching.id} className={css.coaching}>
+          <Link key={coaching.id} className={css.coaching} href={getCoachingUrl(coaching.id)}>
             <div className={cx('icon-user', css.avatar)} />
             <div>
               <h4 className={css.title}>{coaching.title}</h4>
@@ -22,7 +27,7 @@ function CoachingsList({ items }) {
                 {coaching.payment === 'paid' ? `$${coaching.price}` : exchangeType && exchangeType.label}
               </div>
             </div>
-          </div>
+          </Link>
         );
       })}
       {items.length === 0 && (

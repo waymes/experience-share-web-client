@@ -17,6 +17,10 @@ export const routes = {
   protected: {
     profile: '/profile',
     coachings: '/profile/coachings',
+    createCoaching: {
+      to: '/profile/coachings/new',
+      as: '/profile/coachings/[coachingId]',
+    },
     requests: '/profile/requests',
     contacts: '/profile/contacts',
   },

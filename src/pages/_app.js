@@ -7,31 +7,23 @@ import { routes } from '../constants';
 import { getCookie } from '../utils/request';
 import { getInitialLocale, isLocale } from '../translations/getInitialLocale';
 import ruLocale from '../translations/ru.json';
+import { getCategories } from '../store/actions/general';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
     const protectedRoute = Object.values(routes.protected).includes(ctx.pathname);
     const locale = getInitialLocale();
 
     if (ctx.req) {
       const cookie = getCookie(ctx.req);
-      if (cookie) {
-        await getCurrentUser(cookie)
-          .then((user) => {
-            if (protectedRoute && !user) {
-              this.authRedirect(ctx.res, locale);
-            }
-          });
-      } else if (protectedRoute) {
-        this.authRedirect(ctx.res, locale);
+      const user = cookie && await getCurrentUser(cookie);
+      if (protectedRoute && !user) {
+        return this.authRedirect(ctx.res, locale);
       }
     }
     this.checkLocaleRedirect(ctx, locale);
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
+    const [pageProps] = await this.getInitialPromises(Component.getInitialProps, ctx);
 
     return { pageProps, locale };
   }
@@ -42,10 +34,10 @@ class MyApp extends App {
   }
 
   static checkLocaleRedirect(ctx, locale) {
-    const langRegex = /^\/[\S]*\//;
+    const langRegex = /^\/[\S]*\/?/;
     const match = ctx.asPath.match(langRegex);
     const selectedLocale = match && match[0].split('/')[1];
-    if (selectedLocale === locale) {
+    if (selectedLocale === locale || ctx.asPath === '/') {
       return;
     }
     if (isLocale(selectedLocale)) {
@@ -56,6 +48,13 @@ class MyApp extends App {
       ctx.res.writeHead(307, { Location: `/${locale}/not-found` });
       ctx.res.end();
     }
+  }
+
+  static getInitialPromises(pageGetInitialProps, ctx) {
+    return Promise.all([
+      pageGetInitialProps ? pageGetInitialProps(ctx) : Promise.resolve({}),
+      getCategories(),
+    ]);
   }
 
   render() {
