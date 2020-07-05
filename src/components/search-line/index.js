@@ -8,14 +8,14 @@ import { routes } from '../../constants';
 function SearchLine() {
   const router = useRouter();
   const initialValues = {
-    skill: router.query.skill || null,
-    location: router.query.location || null,
+    title: router.query.title || null,
+    city: router.query.city || null,
   };
-  const onSubmit = ({ skill, location }) => {
+  const onSubmit = ({ title, city }) => {
     let search = '';
-    if (skill) search += `skill=${encodeURI(skill)}`;
-    if (location) search += `&location=${encodeURI(location)}`;
-    router.push(`/[lang]${routes.search}`, `/en${routes.search}?${search}`);
+    if (title) search += `title=${encodeURI(title)}`;
+    if (city) search += `&city=${encodeURI(city)}`;
+    router.push(`/[lang]${routes.search}`, `/${router.query.lang}${routes.search}?${search}`);
   };
   return (
     <div className={css.root}>
@@ -24,8 +24,8 @@ function SearchLine() {
         <Form onSubmit={onSubmit} initialValues={initialValues}>
           {({ handleSubmit }) => (
             <form className={css.searchForm} onSubmit={handleSubmit}>
-              <Input name="skill" className={css.skillInput} placeholder="Навык, который вы хотите приобрести" />
-              <Input name="location" className={css.locationInput} placeholder="Город" />
+              <Input name="title" className={css.skillInput} placeholder="Поиск" />
+              <Input name="city" className={css.locationInput} placeholder="Город" />
               <Button className={css.goButton} filled type="submit">Найти обьявления</Button>
             </form>
           )}

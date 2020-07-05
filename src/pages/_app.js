@@ -51,10 +51,12 @@ class MyApp extends App {
   }
 
   static getInitialPromises(pageGetInitialProps, ctx) {
-    return Promise.all([
-      pageGetInitialProps ? pageGetInitialProps(ctx) : Promise.resolve({}),
-      getCategories(),
-    ]);
+    const promises = [pageGetInitialProps ? pageGetInitialProps(ctx) : Promise.resolve({})];
+    const { categories } = ctx.reduxStore.getState().general;
+    if (!categories.length) {
+      promises.push(getCategories());
+    }
+    return Promise.all(promises);
   }
 
   render() {

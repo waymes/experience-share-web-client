@@ -1,22 +1,30 @@
+import { useRouter } from 'next/router';
+import { connect } from 'react-redux';
 import GeneralLayout from '../../layouts/general';
 import css from './search.module.sass';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-import SearchResult from '../../components/search-result';
-import { tempAdvertisements } from '../../constants';
+import { searchCoachings } from '../../store/actions/general';
+import CoachingsList from '../../components/coachings-list';
 
-function HomePage() {
+function HomePage({ coachings }) {
+  const router = useRouter();
+  React.useEffect(() => {
+    searchCoachings(router.asPath);
+  }, [router.asPath]);
   return (
-    <GeneralLayout title="Поиск обьявлений">
+    <GeneralLayout title="Поиск обьявлений" className={css.root}>
       <Header withSearch />
-      <div className={css.container}>
-        {tempAdvertisements.map((advertisement) => (
-          <SearchResult key={advertisement.id} result={advertisement} />
-        ))}
+      <div className={css.searchList}>
+        <CoachingsList items={coachings} />
       </div>
       <Footer />
     </GeneralLayout>
   );
 }
 
-export default HomePage;
+const mapStateToProps = (state) => ({
+  coachings: state.general.coachings,
+});
+
+export default connect(mapStateToProps)(HomePage);

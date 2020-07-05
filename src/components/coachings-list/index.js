@@ -3,11 +3,17 @@ import css from './coachings-list.module.sass';
 import { exchangeTypes, routes } from '../../constants';
 import Link from '../link';
 
-function CoachingsList({ items }) {
-  const getCoachingUrl = (id) => ({
-    as: routes.protected.createCoaching.as,
-    to: `${routes.protected.coachings}/${id}`,
-  });
+function CoachingsList({ items, isProfile }) {
+  const getCoachingUrl = (id) => {
+    if (isProfile) {
+      return {
+        as: routes.protected.createCoaching.as,
+        to: `${routes.protected.coachings}/${id}`,
+      };
+    }
+    return routes.coaching;
+  };
+  const notFoundText = isProfile ? 'У вас пока нет учений, добавьте первое' : 'По вашему запросу с выбранными фильтрами учений пока нет. ¯\\_(ツ)_/¯';
   return (
     <div className={css.root}>
       {items.map((coaching) => {
@@ -30,9 +36,7 @@ function CoachingsList({ items }) {
           </Link>
         );
       })}
-      {items.length === 0 && (
-        <span className={css.notFound}>У вас пока нет учений, добавьте первое</span>
-      )}
+      {items.length === 0 && <span className={css.notFound}>{notFoundText}</span>}
     </div>
   );
 }

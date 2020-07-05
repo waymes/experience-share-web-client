@@ -6,7 +6,6 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Tabs from '../../components/tabs';
 import Link from '../../components/link';
-import { getCategories } from '../../store/actions/general';
 import Section from '../../components/section';
 import { routes } from '../../constants';
 import messages from './messages';
@@ -17,46 +16,39 @@ const tabsContent = [
   'Уроки платные? - не всегда, уроки могут быть платными, бесплатными или вы можете обменяться уроками по согласованию друг с другом',
 ];
 
-class HomePage extends React.Component {
-  static async getInitialProps() {
-    await getCategories();
-  }
-
-  render() {
-    const { categories } = this.props;
-    return (
-      <GeneralLayout className={css.root}>
-        <Header withSearch />
-        <Section>
-          <h2 className={css.title}><FormattedMessage {...messages.popularCategories} /></h2>
-          <div className={css.categories}>
-            {categories.map((category) => (
-              <Link key={category.id} className={css.category} href={`${routes.search}?category=${category.name}`}>
-                <div className={css.iconHolder}>
-                  <i className={`icon-${category.name}`} />
-                </div>
-                <span className={css.categoryTitle}>
-                  {messages[category.name] && <FormattedMessage {...messages[category.name]} />}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </Section>
-        <Section>
-          <h2 className={css.title}><FormattedMessage {...messages.howItWorks} /></h2>
-          <Tabs
-            items={[
-              { label: 'Приобрести навык' },
-              { label: 'Поделиться навыком' },
-              { label: 'FAQ' },
-            ]}
-            content={tabsContent}
-          />
-        </Section>
-        <Footer />
-      </GeneralLayout>
-    );
-  }
+function HomePage({ categories }) {
+  return (
+    <GeneralLayout className={css.root}>
+      <Header withSearch />
+      <Section>
+        <h2 className={css.title}><FormattedMessage {...messages.popularCategories} /></h2>
+        <div className={css.categories}>
+          {categories.map((category) => (
+            <Link key={category.id} className={css.category} href={`${routes.search}?category=${category.name}`}>
+              <div className={css.iconHolder}>
+                <i className={`icon-${category.name}`} />
+              </div>
+              <span className={css.categoryTitle}>
+                {messages[category.name] && <FormattedMessage {...messages[category.name]} />}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </Section>
+      <Section>
+        <h2 className={css.title}><FormattedMessage {...messages.howItWorks} /></h2>
+        <Tabs
+          items={[
+            { label: 'Приобрести навык' },
+            { label: 'Поделиться навыком' },
+            { label: 'FAQ' },
+          ]}
+          content={tabsContent}
+        />
+      </Section>
+      <Footer />
+    </GeneralLayout>
+  );
 }
 
 const mapStateToProps = (state) => ({
