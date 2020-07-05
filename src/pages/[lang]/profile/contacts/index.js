@@ -1,12 +1,3 @@
-import ProfileLayout from '../../../../layouts/profile';
-import css from './contacts.module.sass';
-
-function ContactsPage() {
-  return (
-    <ProfileLayout title="Контакты" className={css.root}>
-      контакты
-    </ProfileLayout>
-  );
-}
+import ContactsPage from '../../../../pages-lib/profile/contacts';
 
 export default ContactsPage;

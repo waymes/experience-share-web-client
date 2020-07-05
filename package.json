@@ -9,8 +9,7 @@
     "start": "NODE_ENV=production node src/server",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "heroku-postbuild": "npm run build",
-    "extract-messages": "NODE_ENV=development babel ./src --out-file /dev/null && node ./translationsRunner"
+    "extract-messages": "NODE_ENV=production babel ./src --out-file /dev/null && node ./translationsRunner"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",

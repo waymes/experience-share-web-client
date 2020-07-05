@@ -41,7 +41,6 @@ export const signup = async ({ firstName, lastName, email, password }) => {
 export const logout = () => {
   dispatch({ type: constants.PROFILE__LOGOUT });
   document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-  Router.push(routes.login);
   Router.push(`/[lang]${routes.login}`, `/${Router.router.query.lang}${routes.login}`);
 };
 
