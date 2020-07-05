@@ -5,7 +5,7 @@ import withRedux from '../layouts/hocs/with-redux';
 import { getCurrentUser } from '../store/actions/profile';
 import { routes } from '../constants';
 import { getCookie } from '../utils/request';
-import { getInitialLocale } from '../translations/getInitialLocale';
+import { getInitialLocale, isLocale } from '../translations/getInitialLocale';
 import ruLocale from '../translations/ru.json';
 
 class MyApp extends App {
@@ -27,9 +27,7 @@ class MyApp extends App {
         this.authRedirect(ctx.res, locale);
       }
     }
-    if (ctx.query.lang && ctx.query.lang !== locale) {
-      this.localeRedirect(ctx, locale);
-    }
+    this.checkLocaleRedirect(ctx, locale);
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
@@ -43,11 +41,21 @@ class MyApp extends App {
     res.end();
   }
 
-  static localeRedirect(ctx, locale) {
-    const langRegex = /^\/[a-zA-Z]*\//;
-    const pathname = ctx.asPath.replace(langRegex, `/${locale}/`);
-    ctx.res.writeHead(307, { Location: pathname });
-    ctx.res.end();
+  static checkLocaleRedirect(ctx, locale) {
+    const langRegex = /^\/[\S]*\//;
+    const match = ctx.asPath.match(langRegex);
+    const selectedLocale = match && match[0].split('/')[1];
+    if (selectedLocale === locale) {
+      return;
+    }
+    if (isLocale(selectedLocale)) {
+      const pathname = ctx.asPath.replace(langRegex, `/${locale}/`);
+      ctx.res.writeHead(307, { Location: pathname });
+      ctx.res.end();
+    } else {
+      ctx.res.writeHead(307, { Location: `/${locale}/not-found` });
+      ctx.res.end();
+    }
   }
 
   render() {
@@ -55,7 +63,7 @@ class MyApp extends App {
 
     return (
       <Provider store={reduxStore}>
-        <IntlProvider locale={locale} messages={ruLocale}>
+        <IntlProvider locale={locale} defaultLocale={locale} messages={ruLocale} onError={() => {}}>
           <Component {...pageProps} />
         </IntlProvider>
       </Provider>
