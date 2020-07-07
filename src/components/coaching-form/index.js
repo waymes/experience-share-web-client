@@ -9,6 +9,7 @@ import { levelsOfSkill, exchangeTypes } from '../../constants';
 import css from './coaching-form.module.sass';
 import { deleteCoaching } from '../../store/actions/profile';
 import messages from './messages';
+import { getCategoriesOptions } from '../../utils/translations';
 
 const newInitialValues = {
   categoryId: '',
@@ -18,10 +19,10 @@ const newInitialValues = {
   payment: '',
 };
 
-function CoachingModal({ onSubmit, categories, isNew, initialValues }) {
+function CoachingForm({ onSubmit, categories, isNew, initialValues }) {
   const [isDeleteAlertOpen, setDeleteAlert] = React.useState(false);
   const { formatMessage } = useIntl();
-  const categoriesOptions = categories.map((el) => ({ value: el.id, label: el.name }));
+  const categoriesOptions = getCategoriesOptions(categories, formatMessage);
 
   const handleFormSubmit = React.useCallback((values) => {
     onSubmit({
@@ -61,12 +62,12 @@ function CoachingModal({ onSubmit, categories, isNew, initialValues }) {
           )}
           <Textarea name="description" label={formatMessage(messages.description)} className={css.field} required />
           <div className={css.buttons}>
-            <Button type="submit" className={css.button} filled>{submitButtonText}</Button>
             {!isNew && (
-              <Button type="button" onClick={() => setDeleteAlert(true)} className={css.button}>
+              <Button type="button" onClick={() => setDeleteAlert(true)} className={css.button} filled>
                 <FormattedMessage {...messages.delete} />
               </Button>
             )}
+            <Button type="submit" className={css.button}>{submitButtonText}</Button>
           </div>
           <Alert
             isOpen={isDeleteAlertOpen}
@@ -80,4 +81,4 @@ function CoachingModal({ onSubmit, categories, isNew, initialValues }) {
   );
 }
 
-export default CoachingModal;
+export default CoachingForm;

@@ -5,7 +5,7 @@ import withRedux from '../layouts/hocs/with-redux';
 import { getCurrentUser } from '../store/actions/profile';
 import { routes } from '../constants';
 import { getCookie } from '../utils/request';
-import { getInitialLocale, isLocale } from '../translations/getInitialLocale';
+import { getInitialLocale, isLocale } from '../utils/translations';
 import ruLocale from '../translations/ru.json';
 import { getCategories } from '../store/actions/general';
 

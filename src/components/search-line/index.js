@@ -26,7 +26,7 @@ function SearchLine() {
             <form className={css.searchForm} onSubmit={handleSubmit}>
               <Input name="title" className={css.skillInput} placeholder="Поиск" />
               <Input name="city" className={css.locationInput} placeholder="Город" />
-              <Button className={css.goButton} filled type="submit">Найти обьявления</Button>
+              <Button className={css.goButton} filled type="submit">Найти учения</Button>
             </form>
           )}
         </Form>

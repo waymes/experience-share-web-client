@@ -26,7 +26,7 @@ class CoachingsPage extends React.Component {
         <div className={css.nav}>
           <Button href={routes.protected.createCoaching} component={Link}>Добавить учение</Button>
         </div>
-        <CoachingsList items={coachings} editable />
+        <CoachingsList items={coachings} isProfile />
       </ProfileLayout>
     );
   }

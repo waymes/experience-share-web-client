@@ -1,6 +1,7 @@
 @import '../../styles/_variables'
 
 .root
+  flex-grow: 1
   .coaching
     background-color: $background2
     padding: $m3
@@ -8,6 +9,8 @@
     position: relative
     display: flex
     border: 1px solid $border-color
+    &:last-child
+      margin-bottom: 0
     .avatar
       width: 150px
       height: 150px

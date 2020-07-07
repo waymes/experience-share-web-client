@@ -9,6 +9,7 @@ import Link from '../../components/link';
 import Section from '../../components/section';
 import { routes } from '../../constants';
 import messages from './messages';
+import commonMessages from '../../messages';
 
 const tabsContent = [
   'Вы размещаете или ищете подходящее обьявление, затем связываетесь с преподователем и начинаете обучение',
@@ -24,12 +25,14 @@ function HomePage({ categories }) {
         <h2 className={css.title}><FormattedMessage {...messages.popularCategories} /></h2>
         <div className={css.categories}>
           {categories.map((category) => (
-            <Link key={category.id} className={css.category} href={`${routes.search}?category=${category.name}`}>
+            <Link key={category.id} className={css.category} href={`${routes.search}?category_id=${category.id}`}>
               <div className={css.iconHolder}>
                 <i className={`icon-${category.name}`} />
               </div>
               <span className={css.categoryTitle}>
-                {messages[category.name] && <FormattedMessage {...messages[category.name]} />}
+                {commonMessages[category.name] && (
+                  <FormattedMessage {...commonMessages[category.name]} />
+                )}
               </span>
             </Link>
           ))}

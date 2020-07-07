@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/dist/client/router';
-import { getInitialLocale } from '../translations/getInitialLocale';
+import { getInitialLocale } from '../utils/translations';
 
 const Index = () => {
   const router = useRouter();

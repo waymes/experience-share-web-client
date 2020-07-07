@@ -1,3 +1,4 @@
+import commonMessages from '../messages';
 import { defaultLocale, locales } from '../constants';
 
 export function isLocale(tested) {
@@ -16,4 +17,11 @@ export function getInitialLocale() {
   // }
 
   return defaultLocale;
+}
+
+export function getCategoriesOptions(categories = [], formatMessage) {
+  return categories.map(({ name }) => ({
+    value: name,
+    label: commonMessages[name] && formatMessage(commonMessages[name]),
+  }));
 }
