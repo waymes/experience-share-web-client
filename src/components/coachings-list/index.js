@@ -1,9 +1,12 @@
+import { useIntl } from 'react-intl';
 import cx from 'classnames';
 import css from './coachings-list.module.sass';
-import { exchangeTypes, routes } from '../../constants';
+import { routes } from '../../constants';
 import Link from '../link';
+import { getPaymentsOptions } from '../../utils/translations';
 
 function CoachingsList({ items, isProfile }) {
+  const { formatMessage } = useIntl();
   const getCoachingUrl = (id) => {
     if (isProfile) {
       return {
@@ -13,11 +16,12 @@ function CoachingsList({ items, isProfile }) {
     }
     return routes.coaching;
   };
+  const paymentsOptions = getPaymentsOptions(formatMessage);
   const notFoundText = isProfile ? 'У вас пока нет учений, добавьте первое' : 'По вашему запросу с выбранными фильтрами учений пока нет. ¯\\_(ツ)_/¯';
   return (
     <div className={css.root}>
       {items.map((coaching) => {
-        const exchangeType = exchangeTypes.find((el) => el.value === coaching.payment);
+        const exchangeType = paymentsOptions.find((el) => el.value === coaching.payment);
         return (
           <Link key={coaching.id} className={css.coaching} href={getCoachingUrl(coaching.id)}>
             <div className={cx('icon-user', css.avatar)} />

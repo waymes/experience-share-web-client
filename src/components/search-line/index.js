@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import qs from 'query-string';
 import { Form } from 'react-final-form';
 import css from './search-line.module.sass';
 import Input from '../input';
@@ -7,14 +8,13 @@ import { routes } from '../../constants';
 
 function SearchLine() {
   const router = useRouter();
+  const { query } = qs.parseUrl(router.asPath);
   const initialValues = {
-    title: router.query.title || null,
-    city: router.query.city || null,
+    title: query.title,
+    city: query.city,
   };
   const onSubmit = ({ title, city }) => {
-    let search = '';
-    if (title) search += `title=${encodeURI(title)}`;
-    if (city) search += `&city=${encodeURI(city)}`;
+    const search = qs.stringify({ ...query, title, city });
     router.push(`/[lang]${routes.search}`, `/${router.query.lang}${routes.search}?${search}`);
   };
   return (

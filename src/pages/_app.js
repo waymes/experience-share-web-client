@@ -11,7 +11,8 @@ import { getCategories } from '../store/actions/general';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    const protectedRoute = Object.values(routes.protected).includes(ctx.pathname);
+    // TODO: problem with protectedRoute checking
+    const protectedRoute = Object.values(routes.protected).includes(ctx.asPath);
     const locale = getInitialLocale();
 
     if (ctx.req) {

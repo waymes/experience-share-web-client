@@ -34,17 +34,3 @@ export const languages = [
   { value: 'uk-UA', label: 'uk-UA' },
   { value: 'ru-RU', label: 'ru-RU' },
 ];
-
-export const levelsOfSkill = [
-  { value: 'beginner', label: 'Начинающий' },
-  { value: 'intermediate', label: 'Средний' },
-  { value: 'upperIntermediate', label: 'Выше среднего' },
-  { value: 'advanced', label: 'Продвинутый' },
-  { value: 'professional', label: 'Профессионал' },
-];
-
-export const exchangeTypes = [
-  { value: 'free', label: 'Бесплатно' },
-  { value: 'paid', label: 'За деньги' },
-  { value: 'exchange', label: 'Взамен на другой навык' },
-];

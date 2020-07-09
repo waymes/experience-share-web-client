@@ -61,4 +61,44 @@ export default defineMessages({
     defaultMessage: 'MUSIC',
     description: 'Music',
   },
+  beginner: {
+    id: 'pages.common.beginner',
+    defaultMessage: 'BEGINNER',
+    description: 'beginner',
+  },
+  intermediate: {
+    id: 'pages.common.intermediate',
+    defaultMessage: 'INTERMEDIATE',
+    description: 'intermediate',
+  },
+  upperIntermediate: {
+    id: 'pages.common.upperIntermediate',
+    defaultMessage: 'UPPER INTERMEDIATE',
+    description: 'upperIntermediate',
+  },
+  advanced: {
+    id: 'pages.common.advanced',
+    defaultMessage: 'ADVANCED',
+    description: 'advanced',
+  },
+  professional: {
+    id: 'pages.common.professional',
+    defaultMessage: 'PROFESSIONAL',
+    description: 'professional',
+  },
+  free: {
+    id: 'pages.common.free',
+    defaultMessage: 'FREE',
+    description: 'free',
+  },
+  paid: {
+    id: 'pages.common.paid',
+    defaultMessage: 'PAID',
+    description: 'paid',
+  },
+  exchange: {
+    id: 'pages.common.exchange',
+    defaultMessage: 'EXCHANGE',
+    description: 'exchange',
+  },
 });

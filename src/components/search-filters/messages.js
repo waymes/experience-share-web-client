@@ -1,15 +1,15 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  category: {
-    id: 'components.search-filters.category',
-    defaultMessage: 'CATEGORY',
-    description: 'Category',
+  categories: {
+    id: 'components.search-filters.categories',
+    defaultMessage: 'CATEGORIES',
+    description: 'Categories',
   },
-  level: {
-    id: 'components.search-filters.level',
-    defaultMessage: 'LEVEL',
-    description: 'Level',
+  levels: {
+    id: 'components.search-filters.levels',
+    defaultMessage: 'LEVELS',
+    description: 'Levels',
   },
   skill: {
     id: 'components.search-filters.skill',

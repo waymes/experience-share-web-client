@@ -5,11 +5,10 @@ import Select from '../select';
 import Button from '../button';
 import Textarea from '../textarea';
 import Alert from '../alert';
-import { levelsOfSkill, exchangeTypes } from '../../constants';
 import css from './coaching-form.module.sass';
 import { deleteCoaching } from '../../store/actions/profile';
 import messages from './messages';
-import { getCategoriesOptions } from '../../utils/translations';
+import { getCategoriesOptions, getLevelsOptions, getPaymentsOptions } from '../../utils/translations';
 
 const newInitialValues = {
   categoryId: '',
@@ -23,6 +22,8 @@ function CoachingForm({ onSubmit, categories, isNew, initialValues }) {
   const [isDeleteAlertOpen, setDeleteAlert] = React.useState(false);
   const { formatMessage } = useIntl();
   const categoriesOptions = getCategoriesOptions(categories, formatMessage);
+  const levelsOptions = getLevelsOptions(formatMessage);
+  const paymentsOptions = getPaymentsOptions(formatMessage);
 
   const handleFormSubmit = React.useCallback((values) => {
     onSubmit({
@@ -40,9 +41,9 @@ function CoachingForm({ onSubmit, categories, isNew, initialValues }) {
     formattedInitialValues = {
       ...initialValues,
       skills: initialValues.skills.map((el) => ({ value: el, label: el })),
-      level: levelsOfSkill.find((el) => el.value === initialValues.level),
+      level: levelsOptions.find((el) => el.value === initialValues.level),
       categoryId: categoriesOptions.find((el) => el.value === initialValues.category.id),
-      payment: exchangeTypes.find((el) => el.value === initialValues.payment),
+      payment: paymentsOptions.find((el) => el.value === initialValues.payment),
     };
   }
   return (
@@ -53,10 +54,10 @@ function CoachingForm({ onSubmit, categories, isNew, initialValues }) {
           <Input name="title" label={formatMessage(messages.name)} className={css.field} required />
           <Input name="city" label={formatMessage(messages.city)} className={css.field} required />
           <Select name="categoryId" label={formatMessage(messages.category)} className={css.field} options={categoriesOptions} required />
-          <Select name="level" label={formatMessage(messages.level)} className={css.field} options={levelsOfSkill} required />
+          <Select name="level" label={formatMessage(messages.level)} className={css.field} options={levelsOptions} required />
           <Select name="skills" label={formatMessage(messages.skills)} className={css.field} options={[]} isMulti isCreatable required />
           <Input name="schedule" label={formatMessage(messages.timetable)} className={css.field} required />
-          <Select name="payment" label={formatMessage(messages.paymentType)} className={css.field} options={exchangeTypes} required />
+          <Select name="payment" label={formatMessage(messages.paymentType)} className={css.field} options={paymentsOptions} required />
           {values.payment.value === 'paid' && (
             <Input name="price" label={formatMessage(messages.price)} type="number" min={1} className={css.field} required />
           )}

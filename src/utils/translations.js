@@ -20,8 +20,26 @@ export function getInitialLocale() {
 }
 
 export function getCategoriesOptions(categories = [], formatMessage) {
-  return categories.map(({ name }) => ({
-    value: name,
+  return categories.map(({ name, id }) => ({
+    value: id,
     label: commonMessages[name] && formatMessage(commonMessages[name]),
   }));
+}
+
+export function getLevelsOptions(formatMessage) {
+  return [
+    { value: 'beginner', label: formatMessage(commonMessages.beginner) },
+    { value: 'intermediate', label: formatMessage(commonMessages.intermediate) },
+    { value: 'upperIntermediate', label: formatMessage(commonMessages.upperIntermediate) },
+    { value: 'advanced', label: formatMessage(commonMessages.advanced) },
+    { value: 'professional', label: formatMessage(commonMessages.professional) },
+  ];
+}
+
+export function getPaymentsOptions(formatMessage) {
+  return [
+    { value: 'free', label: formatMessage(commonMessages.free) },
+    { value: 'paid', label: formatMessage(commonMessages.paid) },
+    { value: 'exchange', label: formatMessage(commonMessages.exchange) },
+  ];
 }

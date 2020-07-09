@@ -25,7 +25,7 @@ function HomePage({ categories }) {
         <h2 className={css.title}><FormattedMessage {...messages.popularCategories} /></h2>
         <div className={css.categories}>
           {categories.map((category) => (
-            <Link key={category.id} className={css.category} href={`${routes.search}?category_id=${category.id}`}>
+            <Link key={category.id} className={css.category} href={`${routes.search}?category_ids=${category.id}`}>
               <div className={css.iconHolder}>
                 <i className={`icon-${category.name}`} />
               </div>

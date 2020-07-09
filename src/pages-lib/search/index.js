@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import GeneralLayout from '../../layouts/general';
 import css from './search.module.sass';
@@ -9,10 +8,6 @@ import CoachingsList from '../../components/coachings-list';
 import SearchFilters from '../../components/search-filters';
 
 function HomePage({ coachings }) {
-  const router = useRouter();
-  React.useEffect(() => {
-    searchCoachings(router.asPath);
-  }, [router.asPath]);
   return (
     <GeneralLayout title="Поиск учений" className={css.root}>
       <Header withSearch />
