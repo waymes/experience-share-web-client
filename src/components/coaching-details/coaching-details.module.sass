@@ -1,0 +1,31 @@
+@import '../../styles/_variables'
+
+.root
+  @include container
+  display: flex
+  margin: $m3 auto
+  .main
+    flex-grow: 1
+    .title
+      margin-top: 0
+      margin-bottom: $m2
+    .skills
+      .skill
+        margin-right: $m3
+    .description
+      max-width: 700px
+    .section
+      &Title
+        margin-bottom: $m2
+  .about
+    width: 200px
+    padding: 0 $m3
+    flex-shrink: 0
+    .avatar
+      width: 100%
+      height: auto
+      font-size: 160px
+      margin-bottom: $m3
+    .button
+      width: 100%
+      margin-bottom: $m2

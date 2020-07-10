@@ -1,13 +1,24 @@
+import { connect } from 'react-redux';
 import GeneralLayout from '../../layouts/general';
 import Header from '../../components/header';
+import { getCoaching } from '../../store/actions/general';
+import CoachingDetails from '../../components/coaching-details';
 
-function CoachingPage() {
+function CoachingPage({ selectedCoaching }) {
   return (
     <GeneralLayout>
       <Header />
-      coaching page
+      <CoachingDetails coaching={selectedCoaching} />
     </GeneralLayout>
   );
 }
 
-export default CoachingPage;
+CoachingPage.getInitialProps = async (ctx) => {
+  await getCoaching(ctx.query.coachingId);
+};
+
+const mapStateToProps = (state) => ({
+  selectedCoaching: state.general.coachings.selected,
+});
+
+export default connect(mapStateToProps)(CoachingPage);

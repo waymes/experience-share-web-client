@@ -25,7 +25,7 @@ HomePage.getInitialProps = async (ctx) => {
 };
 
 const mapStateToProps = (state) => ({
-  coachings: state.general.coachings,
+  coachings: state.general.coachings.list,
 });
 
 export default connect(mapStateToProps)(HomePage);

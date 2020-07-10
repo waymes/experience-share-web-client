@@ -21,3 +21,12 @@ export const searchCoachings = async (url) => {
     console.log(error);
   }
 };
+
+export const getCoaching = async (id) => {
+  try {
+    const coaching = await request(`/api/coachings/${id}`);
+    dispatch({ type: constants.GENERAL__GET_COACHING_SUCCESS, coaching });
+  } catch (error) {
+    console.log(error);
+  }
+};

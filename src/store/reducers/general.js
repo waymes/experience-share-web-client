@@ -2,8 +2,11 @@ import * as constants from '../constants/general';
 
 const initialState = {
   categories: [],
-  coachings: [],
-  coachingsCount: null,
+  coachings: {
+    list: [],
+    totalCount: null,
+    selected: null,
+  },
 };
 
 export default (state = initialState, action) => {
@@ -16,8 +19,19 @@ export default (state = initialState, action) => {
     case constants.GENERAL__SEARCH_COACHING_SUCCESS:
       return {
         ...state,
-        coachings: action.coachings,
-        coachingsCount: action.totalCount,
+        coachings: {
+          ...state.coachings,
+          list: action.coachings,
+          totalCount: action.totalCount,
+        },
+      };
+    case constants.GENERAL__GET_COACHING_SUCCESS:
+      return {
+        ...state,
+        coachings: {
+          ...state.coachings,
+          selected: action.coaching,
+        },
       };
     default:
       return state;
