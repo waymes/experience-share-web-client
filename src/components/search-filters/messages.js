@@ -6,24 +6,19 @@ export default defineMessages({
     defaultMessage: 'CATEGORIES',
     description: 'Categories',
   },
-  levels: {
-    id: 'components.search-filters.levels',
-    defaultMessage: 'LEVELS',
-    description: 'Levels',
+  studentLevel: {
+    id: 'components.search-filters.studentLevel',
+    defaultMessage: 'STUDENT LEVEL',
+    description: 'studentLevel',
   },
-  skill: {
-    id: 'components.search-filters.skill',
-    defaultMessage: 'SKILL',
-    description: 'Skill',
+  teacherLevel: {
+    id: 'components.search-filters.teacherLevel',
+    defaultMessage: 'TEACHER LEVEL',
+    description: 'teacherLevel',
   },
   paymentType: {
     id: 'components.search-filters.paymentType',
     defaultMessage: 'PAYMENT TYPE',
     description: 'Payment type',
-  },
-  price: {
-    id: 'components.search-filters.price',
-    defaultMessage: 'PRICE',
-    description: 'Price',
   },
 });

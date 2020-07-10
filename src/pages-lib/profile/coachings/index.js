@@ -24,7 +24,7 @@ class CoachingsPage extends React.Component {
     return (
       <ProfileLayout title="Мои учения" className={css.root}>
         <div className={css.nav}>
-          <Button href={routes.protected.createCoaching} component={Link}>Добавить учение</Button>
+          <Button href={routes.protected.editCoaching()} component={Link}>Добавить учение</Button>
         </div>
         <CoachingsList items={coachings} isProfile />
       </ProfileLayout>
@@ -33,7 +33,7 @@ class CoachingsPage extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  coachings: state.profile.coachings,
+  coachings: state.profile.coachings.list,
 });
 
 export default connect(mapStateToProps)(CoachingsPage);

@@ -14,14 +14,17 @@ export const routes = {
   contact: '/contact',
   about: '/about',
   policy: '/policy',
-  coaching: '/coaching',
+  coaching: (id) => ({
+    to: `/coaching/${id}`,
+    as: '/coaching/[coachingId]',
+  }),
   protected: {
     profile: '/profile',
     coachings: '/profile/coachings',
-    createCoaching: {
-      to: '/profile/coachings/new',
+    editCoaching: (id = 'new') => ({
+      to: `/profile/coachings/${id}`,
       as: '/profile/coachings/[coachingId]',
-    },
+    }),
     requests: '/profile/requests',
     contacts: '/profile/contacts',
   },

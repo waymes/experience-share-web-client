@@ -14,7 +14,8 @@ const newInitialValues = {
   categoryId: '',
   price: 0,
   skills: [],
-  level: '',
+  teacherLevel: '',
+  studentLevel: '',
   payment: '',
 };
 
@@ -29,7 +30,8 @@ function CoachingForm({ onSubmit, categories, isNew, initialValues }) {
     onSubmit({
       ...values,
       skills: values.skills.map((el) => el.value),
-      level: values.level.value,
+      teacherLevel: values.teacherLevel.value,
+      studentLevel: values.studentLevel.value,
       categoryId: values.categoryId.value,
       payment: values.payment.value,
     });
@@ -41,7 +43,8 @@ function CoachingForm({ onSubmit, categories, isNew, initialValues }) {
     formattedInitialValues = {
       ...initialValues,
       skills: initialValues.skills.map((el) => ({ value: el, label: el })),
-      level: levelsOptions.find((el) => el.value === initialValues.level),
+      teacherLevel: levelsOptions.find((el) => el.value === initialValues.teacherLevel),
+      studentLevel: levelsOptions.find((el) => el.value === initialValues.studentLevel),
       categoryId: categoriesOptions.find((el) => el.value === initialValues.category.id),
       payment: paymentsOptions.find((el) => el.value === initialValues.payment),
     };
@@ -54,7 +57,8 @@ function CoachingForm({ onSubmit, categories, isNew, initialValues }) {
           <Input name="title" label={formatMessage(messages.name)} className={css.field} required />
           <Input name="city" label={formatMessage(messages.city)} className={css.field} required />
           <Select name="categoryId" label={formatMessage(messages.category)} className={css.field} options={categoriesOptions} required />
-          <Select name="level" label={formatMessage(messages.level)} className={css.field} options={levelsOptions} required />
+          <Select name="teacherLevel" label={formatMessage(messages.teacherLevel)} className={css.field} options={levelsOptions} required />
+          <Select name="studentLevel" label={formatMessage(messages.studentLevel)} className={css.field} options={levelsOptions} required />
           <Select name="skills" label={formatMessage(messages.skills)} className={css.field} options={[]} isMulti isCreatable required />
           <Input name="schedule" label={formatMessage(messages.timetable)} className={css.field} required />
           <Select name="payment" label={formatMessage(messages.paymentType)} className={css.field} options={paymentsOptions} required />

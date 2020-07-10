@@ -2,7 +2,11 @@ import * as constants from '../constants/profile';
 
 const initialState = {
   user: null,
-  coachings: [],
+  coachings: {
+    list: [],
+    totalCount: null,
+    selected: null,
+  },
 };
 
 export default (state = initialState, action) => {
@@ -32,17 +36,35 @@ export default (state = initialState, action) => {
     case constants.PROFILE__FETCH_COACHINGS_SUCCESS:
       return {
         ...state,
-        coachings: action.coachings,
+        coachings: {
+          ...state.coachings,
+          list: action.coachings,
+          totalCount: action.totalCount,
+        },
+      };
+    case constants.PROFILE__GET_COACHING_SUCCESS:
+      return {
+        ...state,
+        coachings: {
+          ...state.coachings,
+          selected: action.coaching,
+        },
       };
     case constants.PROFILE__CREATE_COACHING_SUCCESS:
       return {
         ...state,
-        coachings: [action.coaching, ...state.coachings],
+        coachings: {
+          ...state.coachings,
+          list: [action.coaching, ...state.coachings.list],
+        },
       };
     case constants.PROFILE__DELETE_COACHING_SUCCESS:
       return {
         ...state,
-        coachings: state.coachings.filter((el) => el.id !== action.id),
+        coachings: {
+          ...state.coachings,
+          list: state.coachings.list.filter((el) => el.id !== action.id),
+        },
       };
     default:
       return state;

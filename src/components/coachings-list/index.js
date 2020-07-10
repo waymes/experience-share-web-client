@@ -9,12 +9,9 @@ function CoachingsList({ items, isProfile }) {
   const { formatMessage } = useIntl();
   const getCoachingUrl = (id) => {
     if (isProfile) {
-      return {
-        as: routes.protected.createCoaching.as,
-        to: `${routes.protected.coachings}/${id}`,
-      };
+      return routes.protected.editCoaching(id);
     }
-    return routes.coaching;
+    return routes.coaching(id);
   };
   const paymentsOptions = getPaymentsOptions(formatMessage);
   const notFoundText = isProfile ? 'У вас пока нет учений, добавьте первое' : 'По вашему запросу с выбранными фильтрами учений пока нет. ¯\\_(ツ)_/¯';

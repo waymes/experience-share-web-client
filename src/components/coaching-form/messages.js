@@ -41,10 +41,15 @@ export default defineMessages({
     defaultMessage: 'CATEGORY',
     description: 'Category',
   },
-  level: {
-    id: 'components.coaching-form.level',
-    defaultMessage: 'LEVEL',
-    description: 'Level',
+  teacherLevel: {
+    id: 'components.coaching-form.teacherLevel',
+    defaultMessage: 'TEACHER LEVEL',
+    description: 'teacherLevel',
+  },
+  studentLevel: {
+    id: 'components.coaching-form.studentLevel',
+    defaultMessage: 'STUDENT LEVEL',
+    description: 'studentLevel',
   },
   skills: {
     id: 'components.coaching-form.skills',

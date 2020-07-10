@@ -1,7 +1,6 @@
-import Router from 'next/router';
 import request from '../../utils/request';
+import { push } from '../../utils/router';
 import { dispatch } from '../index';
-
 import * as constants from '../constants/profile';
 import { routes } from '../../constants';
 
@@ -12,7 +11,7 @@ export const login = async ({ email, password }) => {
       body: { email, password },
     });
     dispatch({ type: constants.PROFILE__LOGIN_SUCCESS, user });
-    Router.push(`/[lang]${routes.protected.profile}`, `/${Router.router.query.lang}${routes.protected.profile}`);
+    push(routes.protected.profile);
     document.cookie = `token=${token}`;
     return null;
   } catch (error) {
@@ -28,7 +27,7 @@ export const signup = async ({ firstName, lastName, email, password }) => {
     });
     dispatch({ type: constants.PROFILE__SIGNUP_SUCCESS, user });
     document.cookie = `token=${token}`;
-    Router.push(`/[lang]${routes.protected.profile}`, `/${Router.router.query.lang}${routes.protected.profile}`);
+    push(routes.protected.profile);
     return null;
   } catch (error) {
     if (error.statusCode === 409) {
@@ -41,7 +40,7 @@ export const signup = async ({ firstName, lastName, email, password }) => {
 export const logout = () => {
   dispatch({ type: constants.PROFILE__LOGOUT });
   document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-  Router.push(`/[lang]${routes.login}`, `/${Router.router.query.lang}${routes.login}`);
+  push(routes.login);
 };
 
 export const getCurrentUser = async (cookie) => {
@@ -71,8 +70,17 @@ export const saveCurrentUser = async ({ firstName, lastName }) => {
 export const fetchMyCoachings = async (cookie) => {
   try {
     const headers = { authorization: cookie };
-    const coachings = await request('/api/coachings/my', { method: 'GET', headers: cookie ? headers : null });
-    dispatch({ type: constants.PROFILE__FETCH_COACHINGS_SUCCESS, coachings });
+    const { coachings, totalCount } = await request('/api/coachings/my', { method: 'GET', headers: cookie ? headers : null });
+    dispatch({ type: constants.PROFILE__FETCH_COACHINGS_SUCCESS, coachings, totalCount });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getCoaching = async (id) => {
+  try {
+    const coaching = await request(`/api/coachings/${id}`, { method: 'GET' });
+    dispatch({ type: constants.PROFILE__GET_COACHING_SUCCESS, coaching });
   } catch (error) {
     console.log(error);
   }
@@ -82,7 +90,7 @@ export const createCoaching = async (values) => {
   try {
     const coaching = await request('/api/coachings', { method: 'POST', body: values });
     dispatch({ type: constants.PROFILE__CREATE_COACHING_SUCCESS, coaching });
-    Router.push(`/[lang]${routes.protected.createCoaching.as}`, `/${Router.router.query.lang}${routes.protected.coachings}/${coaching.id}`);
+    push(routes.protected.editCoaching(coaching.id));
   } catch (error) {
     console.log(error);
   }
@@ -100,7 +108,7 @@ export const deleteCoaching = async (id) => {
   try {
     await request(`/api/coachings/${id}`, { method: 'DELETE' });
     dispatch({ type: constants.PROFILE__DELETE_COACHING_SUCCESS, id });
-    Router.push(`/[lang]${routes.protected.coachings}`, `/${Router.router.query.lang}${routes.protected.coachings}`);
+    push(routes.protected.coachings);
   } catch (error) {
     console.log(error);
   }

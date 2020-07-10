@@ -3,6 +3,7 @@ import * as constants from '../constants/general';
 const initialState = {
   categories: [],
   coachings: [],
+  coachingsCount: null,
 };
 
 export default (state = initialState, action) => {
@@ -16,6 +17,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         coachings: action.coachings,
+        coachingsCount: action.totalCount,
       };
     default:
       return state;

@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import ProfileLayout from '../../../../layouts/profile';
 import CoachingForm from '../../../../components/coaching-form';
 import css from './edit-coaching.module.sass';
-import { createCoaching, updateCoaching } from '../../../../store/actions/profile';
+import { createCoaching, updateCoaching, getCoaching } from '../../../../store/actions/profile';
 import messages from './messages';
 
-function EditCoachingPage({ categories, coachings }) {
+function EditCoachingPage({ categories, selectedCoaching }) {
   const router = useRouter();
   const { formatMessage } = useIntl();
 
@@ -19,15 +19,22 @@ function EditCoachingPage({ categories, coachings }) {
         categories={categories}
         isNew={isNew}
         onSubmit={isNew ? createCoaching : updateCoaching}
-        initialValues={!isNew && coachings.find((el) => el.id === +router.query.coachingId)}
+        initialValues={selectedCoaching}
       />
     </ProfileLayout>
   );
 }
 
+EditCoachingPage.getInitialProps = async (ctx) => {
+  const { coachingId } = ctx.query;
+  if (coachingId === 'new') return;
+
+  await getCoaching(ctx.query.coachingId);
+};
+
 const mapStateToProps = (state) => ({
   categories: state.general.categories,
-  coachings: state.profile.coachings,
+  selectedCoaching: state.profile.coachings.selected,
 });
 
 export default connect(mapStateToProps)(EditCoachingPage);

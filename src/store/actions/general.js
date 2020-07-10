@@ -15,8 +15,8 @@ export const getCategories = async () => {
 export const searchCoachings = async (url) => {
   try {
     const queryString = url.split('?')[1] || '';
-    const coachings = await request(`/api/coachings?${queryString}`);
-    dispatch({ type: constants.GENERAL__SEARCH_COACHING_SUCCESS, coachings });
+    const { coachings, totalCount } = await request(`/api/coachings?${queryString}`);
+    dispatch({ type: constants.GENERAL__SEARCH_COACHING_SUCCESS, coachings, totalCount });
   } catch (error) {
     console.log(error);
   }

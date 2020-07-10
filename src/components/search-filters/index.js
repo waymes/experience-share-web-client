@@ -12,13 +12,17 @@ import CheckboxArray from '../checkbox-array';
 
 const getInitialValues = ({ query, categoriesOptions, levelsOptions, paymentsOptions }) => {
   let urlCategoryIds = [parseInt(query.category_ids, 10)];
-  let urlLevels = [query.levels];
+  let urlTeacherLevels = [query.teacher_levels];
+  let urlStudentLevels = [query.student_levels];
   let urlPayments = [query.payments];
   if (Array.isArray(query.category_ids)) {
     urlCategoryIds = query.category_ids.map(Number);
   }
-  if (Array.isArray(query.levels)) {
-    urlLevels = query.levels;
+  if (Array.isArray(query.teacher_levels)) {
+    urlTeacherLevels = query.teacher_levels;
+  }
+  if (Array.isArray(query.student_levels)) {
+    urlStudentLevels = query.student_levels;
   }
   if (Array.isArray(query.payments)) {
     urlPayments = query.payments;
@@ -27,8 +31,11 @@ const getInitialValues = ({ query, categoriesOptions, levelsOptions, paymentsOpt
     category_ids: categoriesOptions.map((el) => (
       urlCategoryIds.includes(el.value) ? ({ ...el, selected: true }) : el
     )),
-    levels: levelsOptions.map((el) => (
-      urlLevels.includes(el.value) ? ({ ...el, selected: true }) : el
+    teacher_levels: levelsOptions.map((el) => (
+      urlTeacherLevels.includes(el.value) ? ({ ...el, selected: true }) : el
+    )),
+    student_levels: levelsOptions.map((el) => (
+      urlStudentLevels.includes(el.value) ? ({ ...el, selected: true }) : el
     )),
     payments: paymentsOptions.map((el) => (
       urlPayments.includes(el.value) ? ({ ...el, selected: true }) : el
@@ -50,7 +57,8 @@ function SearchFilters({ categories }) {
     const search = qs.stringify({
       ...query,
       category_ids: values.category_ids.filter((el) => el.selected).map((el) => el.value),
-      levels: values.levels.filter((el) => el.selected).map((el) => el.value),
+      teacher_levels: values.teacher_levels.filter((el) => el.selected).map((el) => el.value),
+      student_levels: values.student_levels.filter((el) => el.selected).map((el) => el.value),
       payments: values.payments.filter((el) => el.selected).map((el) => el.value),
     });
     const newAsPath = `/${router.query.lang}${routes.search}?${search}`;
@@ -73,8 +81,14 @@ function SearchFilters({ categories }) {
             onChange={handleSubmit}
           />
           <CheckboxArray
-            name="levels"
-            title={formatMessage(messages.levels)}
+            name="teacher_levels"
+            title={formatMessage(messages.teacherLevel)}
+            options={levelsOptions}
+            onChange={handleSubmit}
+          />
+          <CheckboxArray
+            name="student_levels"
+            title={formatMessage(messages.studentLevel)}
             options={levelsOptions}
             onChange={handleSubmit}
           />
