@@ -32,7 +32,7 @@ function EditCoachingPage({ categories, selectedCoaching, notFound }) {
 EditCoachingPage.getInitialProps = async (ctx) => {
   const returnObj = { notFound: false };
   const { coachingId } = ctx.query;
-  let coaching = null;
+  let coaching = {};
   if (coachingId !== 'new') {
     coaching = await getCoaching(ctx.query.coachingId);
   }

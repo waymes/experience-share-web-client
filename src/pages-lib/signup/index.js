@@ -8,6 +8,7 @@ import Button from '../../components/button';
 import Header from '../../components/header';
 import { signup } from '../../store/actions/profile';
 import messages from './messages';
+import authGuard from '../../layouts/hocs/auth-guard';
 
 function SignupPage() {
   const { formatMessage } = useIntl();
@@ -32,4 +33,4 @@ function SignupPage() {
   );
 }
 
-export default SignupPage;
+export default authGuard()(SignupPage);

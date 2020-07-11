@@ -1,14 +1,11 @@
-import { connect } from 'react-redux';
 import cx from 'classnames';
 import GeneralLayout from '../general';
 import Header from '../../components/header';
 import css from './profile.module.sass';
 import ProfileHead from '../../components/profile-head';
+import authGuard from '../hocs/auth-guard';
 
-function ProfileLayout({ children, title, user, className }) {
-  if (!user) {
-    return null;
-  }
+function ProfileLayout({ children, title, className }) {
   return (
     <GeneralLayout title={title}>
       <Header />
@@ -22,8 +19,4 @@ function ProfileLayout({ children, title, user, className }) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  user: state.profile.user,
-});
-
-export default connect(mapStateToProps)(ProfileLayout);
+export default authGuard({ auth: true })(ProfileLayout);

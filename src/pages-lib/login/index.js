@@ -10,6 +10,7 @@ import { routes } from '../../constants';
 import Header from '../../components/header';
 import { login } from '../../store/actions/profile';
 import messages from './messages';
+import authGuard from '../../layouts/hocs/auth-guard';
 
 function LoginPage() {
   const { formatMessage } = useIntl();
@@ -45,4 +46,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default authGuard()(LoginPage);
