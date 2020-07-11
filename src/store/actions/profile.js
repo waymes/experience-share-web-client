@@ -81,8 +81,10 @@ export const getCoaching = async (id) => {
   try {
     const coaching = await request(`/api/coachings/${id}`, { method: 'GET' });
     dispatch({ type: constants.PROFILE__GET_COACHING_SUCCESS, coaching });
+    return coaching;
   } catch (error) {
     console.log(error);
+    return null;
   }
 };
 
