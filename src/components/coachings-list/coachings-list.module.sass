@@ -4,25 +4,29 @@
   flex-grow: 1
   .coaching
     background-color: $background2
-    padding: $m3
+    padding: $m4
     margin-bottom: $m3
     position: relative
     display: flex
-    border: 1px solid $border-color
+    color: $color5
+    &:hover, &:focus
+      .title
+        text-decoration: underline
     &:last-child
       margin-bottom: 0
     .avatar
-      width: 150px
-      height: 150px
-      font-size: 150px
+      width: 90px
+      height: 90px
+      font-size: 90px
       border-radius: 50%
       overflow: hidden
       flex-shrink: 0
       margin-right: $m3
+      color: $color1
     .title
-      @include link
       margin-top: 0
       margin-bottom: $m2
+      color: $color1
     .description
       margin-top: $m2
       white-space: nowrap
@@ -42,12 +46,12 @@
           display: none
     .type
       position: absolute
-      right: $m2
-      bottom: $m2
+      right: $m3
+      top: $m3
       padding: 0 $m1
       background-color: $background3
       border-radius: $border-radius-primary
-      border: 1px solid $border-color
+      border: 1px solid $background4
   .notFound
     text-align: center
     display: block

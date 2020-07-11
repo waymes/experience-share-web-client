@@ -1,7 +1,9 @@
 @import '../../styles/_variables'
   
+$header-height: 65px
+
 .root
-  padding-top: 65px
+  padding-top: $header-height
   .navLine
     position: fixed
     top: 0
@@ -9,61 +11,54 @@
     right: 0
     z-index: $zIndexPopup
     background-color: $background3
-    border-bottom: 1px solid $border-color
     box-shadow: $box-shadow-light
     .container
       @include container
       display: flex
-      align-items: center
-      padding-top: $m2
-      padding-bottom: $m2
+      height: $header-height
       .logo
         margin-right: auto
         font-size: $sizeXXL
+        line-height: $header-height
       .link
-        margin-left: $m3
+        padding: 0 $m2
         cursor: pointer
+        line-height: $header-height
+        font-size: $sizeS
+        font-weight: 700
       .button
-        margin-left: $m3
+        margin-left: $m2
+        display: flex
+        align-self: center
+        font-size: $sizeS
   .profileMenu
     position: relative
-    margin-left: $m3
+    padding: 0 $m2
     user-select: none
     cursor: pointer
+    display: flex
+    align-items: center
+    outline: none
+    &.active
+      background-color: $background2
     .avatar
       width: 30px
       height: 30px
       font-size: 30px
+      margin-bottom: $m1
     .dropdownMenu
       position: absolute
       width: 150px
-      top: 45px
+      top: $header-height
       right: 0
       background-color: $background2
       color: $color1
-      box-shadow: $box-shadow-primary
-      border-radius: $border-radius-primary
-      &::before, &::after
-        content: ''
-        position: absolute
-        width: 0
-        height: 0
-      &::before
-        top: -10px
-        right: 5px
-        border-left: 10px solid transparent
-        border-right: 10px solid transparent
-        border-bottom: 10px solid $border-color
-      &::after
-        top: -8px
-        right: 7px
-        border-left: 8px solid transparent
-        border-right: 8px solid transparent
-        border-bottom: 8px solid $background2
+      box-shadow: -1px 5px 6px rgba(0,0,0,0.3)
       .link
         display: block
         padding: $m2 $m3
         margin: 0
+        line-height: unset
         &:hover
           background: $background3
         &:first-child

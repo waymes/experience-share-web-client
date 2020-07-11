@@ -68,11 +68,11 @@ function CoachingForm({ onSubmit, categories, isNew, initialValues }) {
           <Textarea name="description" label={formatMessage(messages.description)} className={css.field} required />
           <div className={css.buttons}>
             {!isNew && (
-              <Button type="button" onClick={() => setDeleteAlert(true)} className={css.button} filled>
+              <Button type="button" onClick={() => setDeleteAlert(true)} className={css.button}>
                 <FormattedMessage {...messages.delete} />
               </Button>
             )}
-            <Button type="submit" className={css.button}>{submitButtonText}</Button>
+            <Button type="submit" className={css.button} filled>{submitButtonText}</Button>
           </div>
           <Alert
             isOpen={isDeleteAlertOpen}

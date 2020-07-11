@@ -35,7 +35,13 @@ function ProfilePage({ user }) {
         onSubmit={() => {}}
         className={css.section}
       >
-        <Select options={languages} name="language" label="Язык интерфейса" className={css.select} />
+        <Select
+          options={languages}
+          name="language"
+          label="Язык интерфейса"
+          className={css.select}
+          menuPlacement="top"
+        />
         <Button type="submit" className={css.button}>Сохранить</Button>
       </ProfileSection>
     </ProfileLayout>

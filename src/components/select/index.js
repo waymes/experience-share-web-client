@@ -21,12 +21,12 @@ const fieldValidator = (required) => (value) => {
 const selectStyles = {
   control: (styles) => ({
     ...styles,
-    borderColor: '#414141',
+    borderColor: '#1fc2d9',
     borderRadius: 'none',
     boxShadow: 'none',
     outline: 'none',
     '&:hover': {
-      borderColor: '#414141',
+      borderColor: '#1fc2d9',
     },
   }),
   option: (styles, { isFocused }) => ({
@@ -45,7 +45,7 @@ const selectStyles = {
   }),
 };
 
-function Select({ name, label, className, options, required, isCreatable, isMulti }) {
+function Select({ name, label, className, options, required, isCreatable, ...other }) {
   const Component = isCreatable ? CreatableSelect : ReactSelect;
   return (
     <Field name={name} validate={fieldValidator(required)}>
@@ -56,7 +56,7 @@ function Select({ name, label, className, options, required, isCreatable, isMult
             options={options}
             {...input}
             placeholder="- выбрать -"
-            isMulti={isMulti}
+            {...other}
             styles={selectStyles}
             // eslint-disable-next-line no-plusplus
             instanceId={instanceId++}

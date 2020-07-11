@@ -8,13 +8,16 @@ $sizeXXL: 30px
 
 $fontFamily: 'Open Sans', Arial, sans-serif
 
-$background1: #414141
-$background2: #f8f9fa
+$background1: #234262
+$background2: #f8fafe
 $background3: #fff
+$background4: #1fc2d9
 
-$color1: #333
+$color1: #234262
 $color2: #fff
 $color3: red
+$color4: #1fc2d9
+$color5: #7d84ab
 
 $m1: 5px
 $m2: 10px
@@ -29,9 +32,9 @@ $l: 992px
 $xl: 1200px
 
 $border-radius-primary: 3px
-$border-color: #dfe3e6
+$background4: #1fc2d9
 $box-shadow-primary: 0 1px 3px $color1
-$box-shadow-light: 0 0 5px $background1
+$box-shadow-light: 0px 3px 16px 0px rgba(0, 0, 0, 0.1)
 
 $zIndexPopup: 20
 
@@ -60,5 +63,11 @@ $transitionM: 400ms
 
 @mixin link
   cursor: pointer
+  text-decoration: underline
   &:hover
-    text-decoration: underline
+    text-decoration: none
+
+@mixin hover
+  outline: none
+  &:hover, &:focus
+    background-color: $background2

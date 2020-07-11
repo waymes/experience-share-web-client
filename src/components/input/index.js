@@ -28,7 +28,7 @@ function Input({ className, inputClassName, name, label, required, type, ...othe
     <Field name={name} validate={fieldValidator(type, required)} parse={notRemoveWhenEmpty(type)}>
       {({ input, meta }) => (
         <div className={cx(css.container, className)}>
-          {label && <label htmlFor={name}>{label}</label>}
+          {label && <label htmlFor={name} className={css.label}>{label}</label>}
           <input
             id={name}
             className={cx(css.input, inputClassName)}

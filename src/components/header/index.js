@@ -37,7 +37,10 @@ function Header({ withSearch, user }) {
             <Button large component={Link} href={routes.login} className={css.button}>Войти</Button>
           )}
           {user && (
-            <ElementButton className={css.profileMenu} onClick={() => setMenuOpen(!isMenuOpen)}>
+            <ElementButton
+              className={cx(css.profileMenu, { [css.active]: isMenuOpen })}
+              onClick={() => setMenuOpen(!isMenuOpen)}
+            >
               <div className={cx('icon-user', css.avatar)} />
               {isMenuOpen && (
                 <div className={css.dropdownMenu} ref={dropdownRef}>

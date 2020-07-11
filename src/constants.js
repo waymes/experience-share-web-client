@@ -32,8 +32,5 @@ export const routes = {
 
 export const languages = [
   { value: 'en-US', label: 'en-US' },
-  { value: 'es-US', label: 'es-US' },
-  { value: 'fr-FR', label: 'fr-FR' },
-  { value: 'uk-UA', label: 'uk-UA' },
   { value: 'ru-RU', label: 'ru-RU' },
 ];
