@@ -7,15 +7,11 @@ import Footer from '../../components/footer';
 import Tabs from '../../components/tabs';
 import Link from '../../components/link';
 import Section from '../../components/section';
-import { routes } from '../../constants';
+import { TabGetSkill, TabShareSkill, TabFaq } from './tabs';
+import { routes, reviews } from '../../constants';
 import messages from './messages';
 import commonMessages from '../../messages';
-
-const tabsContent = [
-  'Вы размещаете или ищете подходящее обьявление, затем связываетесь с преподователем и начинаете обучение',
-  'Вы размещаете или ищете подходящее обьявление, затем связываетесь со студентом и начинаете обучение',
-  'Уроки платные? - не всегда, уроки могут быть платными, бесплатными или вы можете обменяться уроками по согласованию друг с другом',
-];
+import ReviewBlock from '../../components/review-block';
 
 function HomePage({ categories }) {
   return (
@@ -46,8 +42,16 @@ function HomePage({ categories }) {
             { label: 'Поделиться навыком' },
             { label: 'FAQ' },
           ]}
-          content={tabsContent}
+          content={[
+            <TabGetSkill />,
+            <TabShareSkill />,
+            <TabFaq />,
+          ]}
         />
+      </Section>
+      <Section>
+        <h2 className={css.title}>Отзывы пользователей</h2>
+        {reviews.map((review) => <ReviewBlock review={review} key={review.name} />)}
       </Section>
       <Footer />
     </GeneralLayout>

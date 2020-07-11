@@ -32,7 +32,7 @@ function Header({ withSearch, user }) {
         <div className={css.container}>
           <Link href={routes.index} className={css.logo}>Skillien.com</Link>
           <Link href={routes.search} className={css.link}>Найти обьявление</Link>
-          <Link href={routes.login} className={css.link}>Разместить навык</Link>
+          <Link href={routes.protected.editCoaching()} className={css.link}>Разместить навык</Link>
           {!user && (
             <Button large component={Link} href={routes.login} className={css.button}>Войти</Button>
           )}
