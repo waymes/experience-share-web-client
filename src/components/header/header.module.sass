@@ -1,21 +1,30 @@
 @import '../../styles/_variables'
   
 .root
-  border-bottom: 1px solid $border-color
+  padding-top: 65px
   .navLine
-    @include container
-    display: flex
-    align-items: center
-    padding-top: $m2
-    padding-bottom: $m2
-    .logo
-      margin-right: auto
-      font-size: $sizeXXL
-    .link
-      margin-left: $m3
-      cursor: pointer
-    .button
-      margin-left: $m3
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: $zIndexPopup
+    background-color: $background3
+    border-bottom: 1px solid $border-color
+    box-shadow: $box-shadow-light
+    .container
+      @include container
+      display: flex
+      align-items: center
+      padding-top: $m2
+      padding-bottom: $m2
+      .logo
+        margin-right: auto
+        font-size: $sizeXXL
+      .link
+        margin-left: $m3
+        cursor: pointer
+      .button
+        margin-left: $m3
   .profileMenu
     position: relative
     margin-left: $m3

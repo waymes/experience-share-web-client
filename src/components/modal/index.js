@@ -5,6 +5,13 @@ import { CSSTransition } from 'react-transition-group';
 import css from './modal.module.sass';
 
 function Modal({ children, isOpen, onClose }) {
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  });
   return (
     <CSSTransition in={isOpen} unmountOnExit timeout={400} classNames="modal-transition">
       <div className={css.modal} onClick={onClose}>

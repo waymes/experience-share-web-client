@@ -29,24 +29,26 @@ function Header({ withSearch, user }) {
   return (
     <header className={css.root}>
       <div className={css.navLine}>
-        <Link href={routes.index} className={css.logo}>Skillien.com</Link>
-        <Link href={routes.search} className={css.link}>Найти обьявление</Link>
-        <Link href={routes.login} className={css.link}>Разместить навык</Link>
-        {!user && (
-          <Button large component={Link} href={routes.login} className={css.button}>Войти</Button>
-        )}
-        {user && (
-          <ElementButton className={css.profileMenu} onClick={() => setMenuOpen(!isMenuOpen)}>
-            <div className={cx('icon-user', css.avatar)} />
-            {isMenuOpen && (
-              <div className={css.dropdownMenu} ref={dropdownRef}>
-                <Link href={routes.protected.profile} className={css.link}>Профиль</Link>
-                <Link href={routes.protected.coachings} className={css.link}>Мои учения</Link>
-                <ElementButton className={css.link} onClick={logout}>Выйти</ElementButton>
-              </div>
-            )}
-          </ElementButton>
-        )}
+        <div className={css.container}>
+          <Link href={routes.index} className={css.logo}>Skillien.com</Link>
+          <Link href={routes.search} className={css.link}>Найти обьявление</Link>
+          <Link href={routes.login} className={css.link}>Разместить навык</Link>
+          {!user && (
+            <Button large component={Link} href={routes.login} className={css.button}>Войти</Button>
+          )}
+          {user && (
+            <ElementButton className={css.profileMenu} onClick={() => setMenuOpen(!isMenuOpen)}>
+              <div className={cx('icon-user', css.avatar)} />
+              {isMenuOpen && (
+                <div className={css.dropdownMenu} ref={dropdownRef}>
+                  <Link href={routes.protected.profile} className={css.link}>Профиль</Link>
+                  <Link href={routes.protected.coachings} className={css.link}>Мои учения</Link>
+                  <ElementButton className={css.link} onClick={logout}>Выйти</ElementButton>
+                </div>
+              )}
+            </ElementButton>
+          )}
+        </div>
       </div>
       {withSearch && <SearchLine />}
     </header>
