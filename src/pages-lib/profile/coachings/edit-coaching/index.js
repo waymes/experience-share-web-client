@@ -1,16 +1,16 @@
 import { useRouter } from 'next/router';
-import ErrorPage from 'next/error';
 import { useIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import ProfileLayout from '../../../../layouts/profile';
 import CoachingForm from '../../../../components/coaching-form';
+import NotFoundPage from '../../../not-found';
 import css from './edit-coaching.module.sass';
 import { createCoaching, updateCoaching, getCoaching } from '../../../../store/actions/profile';
 import messages from './messages';
 
 function EditCoachingPage({ categories, selectedCoaching, notFound }) {
   if (notFound) {
-    return <ErrorPage statusCode={404} />;
+    return <NotFoundPage />;
   }
   const router = useRouter();
   const { formatMessage } = useIntl();
